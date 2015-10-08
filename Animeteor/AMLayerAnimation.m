@@ -110,15 +110,6 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     
     [self animationCompleted:flag];
     
-    if (self.completionBlock)
-        self.completionBlock(flag);
-    
-    self.complete = YES;
-    self.finished = flag;
-    
-    /* Remove animation from view so it can be released */
-    objc_setAssociatedObject(self.layer, &AMAnimationLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
 }
 
 - (void)prepareAnimation:(AMBasicAnimation *)animation usingKey:(NSString *)key {
@@ -178,7 +169,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
         if (![self.layer animationForKey:ANIMATION_KEY_FOR_KEYPATH(self.keyPath)]) {
             
             [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(setupAnimations) object:nil];
-            [self animationDidStop:nil finished:NO];
+            [self animationCompleted:NO];
             
         } else { // Animation is in progress.
             
@@ -200,7 +191,18 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     
 }
 
-- (void)animationCompleted:(BOOL)finished { }
+- (void)animationCompleted:(BOOL)finished {
+
+    if (self.completionBlock)
+        self.completionBlock(finished);
+    
+    self.complete = YES;
+    self.finished = finished;
+    
+    /* Remove animation from view so it can be released */
+    objc_setAssociatedObject(self.layer, &AMAnimationLayerKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+}
 
 - (void)setupAnimations {
     
