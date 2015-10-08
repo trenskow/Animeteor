@@ -1,5 +1,5 @@
 //
-//  AMBasicAnimation.h
+//  AMCurvedKeyedAnimation.h
 //  Animeteor
 //
 //  Copyright (c) 2013-2014, Kristian Trenskow
@@ -35,9 +35,9 @@
 @class AMCurve;
 
 /*!
- The `AMBasicAnimation` class is a `CAAnimation` subclass that provides basic animation of a `CALayer` property. This class is much like Core Animation's `CABasicAnimation` except it allows for custom interpolation using `AMCurve`.
+ The `AMCurvedKeyedAnimation` class is a `CAAnimation` subclass that provides basic animation of a `CALayer` property. This class is much like Core Animation's `CABasicAnimation` except it allows for custom interpolation using `AMCurve`.
  */
-@interface AMBasicAnimation : CAKeyframeAnimation
+@interface AMCurvedKeyedAnimation : CAKeyframeAnimation
 
 /// --------------------------
 /// @name Interpolation values

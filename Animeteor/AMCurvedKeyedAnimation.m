@@ -1,5 +1,5 @@
 //
-//  AMBasicAnimation.m
+//  AMCurvedKeyedAnimation.m
 //  Animeteor
 //
 //  Copyright (c) 2013-2014, Kristian Trenskow
@@ -30,9 +30,9 @@
 
 #import "AMCurve.h"
 
-#import "AMBasicAnimation.h"
+#import "AMCurvedKeyedAnimation.h"
 
-@interface AMBasicAnimation () {
+@interface AMCurvedKeyedAnimation () {
     
     AMCurve *_curve;
     
@@ -40,13 +40,13 @@
 
 @end
 
-@implementation AMBasicAnimation
+@implementation AMCurvedKeyedAnimation
 
 #pragma mark - Creating an Animation
 
 + (instancetype)animationWithKeyPath:(NSString *)path {
     
-    AMBasicAnimation* animation = [super animationWithKeyPath:path];
+    AMCurvedKeyedAnimation* animation = [super animationWithKeyPath:path];
     
     if (animation)
         animation.curve = [AMCurve linear];
