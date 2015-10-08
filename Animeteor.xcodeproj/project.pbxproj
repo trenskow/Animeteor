@@ -18,11 +18,6 @@
 		A144E52F1BC5F2AC0054FB60 /* AMAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788417883B7D0000B420 /* AMAnimationGroup.m */; settings = {ASSET_TAGS = (); }; };
 		A144E5301BC5F2AC0054FB60 /* AMBasicAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C789517883BD20000B420 /* AMBasicAnimation.h */; settings = {ASSET_TAGS = (); }; };
 		A144E5311BC5F2AC0054FB60 /* AMBasicAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C789617883BD20000B420 /* AMBasicAnimation.m */; settings = {ASSET_TAGS = (); }; };
-		A144E5321BC5F2AC0054FB60 /* UIView+AnimeteorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E6EA9F1913B55300E4F179 /* UIView+AnimeteorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A144E5331BC5F2AC0054FB60 /* UIView+AnimeteorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6EAA01913B55300E4F179 /* UIView+AnimeteorAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		A144E5341BC5F2AC0054FB60 /* CALayer+AnimeteorAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E6EAA21913B5CE00E4F179 /* CALayer+AnimeteorAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A144E5351BC5F2AC0054FB60 /* CALayer+AnimeteorAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6EAA31913B5CE00E4F179 /* CALayer+AnimeteorAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		A144E5361BC5F2AC0054FB60 /* AMAnimatable.h in Headers */ = {isa = PBXBuildFile; fileRef = A10D78AC19A274C40013E5F5 /* AMAnimatable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5411BC5F2AC0054FB60 /* AMLayerAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A10A32A718E2DB5B000D4B49 /* AMLayerAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5421BC5F2AC0054FB60 /* AMLayerAnimation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */; settings = {ASSET_TAGS = (); }; };
 		A144E5431BC5F2AC0054FB60 /* AMLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */; settings = {ASSET_TAGS = (); }; };
@@ -43,7 +38,6 @@
 		A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMLayerAnimation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A10BC9A217883E9800F354FC /* Animeteor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animeteor.h; sourceTree = "<group>"; };
 		A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMLayerAnimation+Private.h"; sourceTree = "<group>"; };
-		A10D78AC19A274C40013E5F5 /* AMAnimatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMAnimatable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A10D78D819A279530013E5F5 /* AMCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMCurve.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A10D78D919A279530013E5F5 /* AMCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCurve.m; sourceTree = "<group>"; };
 		A1145CE4194EF9F3001B0108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -71,10 +65,6 @@
 		A144E5231BC5F2660054FB60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1E6EA931912D98600E4F179 /* AMDirectAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMDirectAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E6EA941912D98600E4F179 /* AMDirectAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMDirectAnimation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A1E6EA9F1913B55300E4F179 /* UIView+AnimeteorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AnimeteorAdditions.h"; sourceTree = "<group>"; };
-		A1E6EAA01913B55300E4F179 /* UIView+AnimeteorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AnimeteorAdditions.m"; sourceTree = "<group>"; };
-		A1E6EAA21913B5CE00E4F179 /* CALayer+AnimeteorAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "CALayer+AnimeteorAdditions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A1E6EAA31913B5CE00E4F179 /* CALayer+AnimeteorAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+AnimeteorAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,21 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				A1D5FCD719ACE5EA00C9EB4B /* Additions */,
-				A1D5FCDA19ACEA1F00C9EB4B /* Animatable */,
 				A10A32A718E2DB5B000D4B49 /* AMLayerAnimation.h */,
 				A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */,
 				A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */,
 			);
 			name = "Core Animation";
-			sourceTree = "<group>";
-		};
-		A10A32B418E2E646000D4B49 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				A1D5FCDD19ACEA6800C9EB4B /* UIKit */,
-				A1D5FCDE19ACEA6D00C9EB4B /* QuartzCore */,
-			);
-			name = Categories;
 			sourceTree = "<group>";
 		};
 		A11C784A178839720000B420 = {
@@ -254,46 +234,11 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		A1D5FCDA19ACEA1F00C9EB4B /* Animatable */ = {
-			isa = PBXGroup;
-			children = (
-				A1D5FCDB19ACEA2A00C9EB4B /* Additions */,
-				A10D78AC19A274C40013E5F5 /* AMAnimatable.h */,
-			);
-			name = Animatable;
-			sourceTree = "<group>";
-		};
-		A1D5FCDB19ACEA2A00C9EB4B /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				A10A32B418E2E646000D4B49 /* Categories */,
-			);
-			name = Additions;
-			sourceTree = "<group>";
-		};
 		A1D5FCDC19ACEA5800C9EB4B /* QuartzCore */ = {
 			isa = PBXGroup;
 			children = (
 				A11C789517883BD20000B420 /* AMBasicAnimation.h */,
 				A11C789617883BD20000B420 /* AMBasicAnimation.m */,
-			);
-			name = QuartzCore;
-			sourceTree = "<group>";
-		};
-		A1D5FCDD19ACEA6800C9EB4B /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				A1E6EA9F1913B55300E4F179 /* UIView+AnimeteorAdditions.h */,
-				A1E6EAA01913B55300E4F179 /* UIView+AnimeteorAdditions.m */,
-			);
-			name = UIKit;
-			sourceTree = "<group>";
-		};
-		A1D5FCDE19ACEA6D00C9EB4B /* QuartzCore */ = {
-			isa = PBXGroup;
-			children = (
-				A1E6EAA21913B5CE00E4F179 /* CALayer+AnimeteorAdditions.h */,
-				A1E6EAA31913B5CE00E4F179 /* CALayer+AnimeteorAdditions.m */,
 			);
 			name = QuartzCore;
 			sourceTree = "<group>";
@@ -341,10 +286,7 @@
 				A144E54E1BC5F3C00054FB60 /* NSValue+AnimeteorAdditions.h in Headers */,
 				A144E5301BC5F2AC0054FB60 /* AMBasicAnimation.h in Headers */,
 				A144E5421BC5F2AC0054FB60 /* AMLayerAnimation+Private.h in Headers */,
-				A144E5341BC5F2AC0054FB60 /* CALayer+AnimeteorAdditions.h in Headers */,
-				A144E5321BC5F2AC0054FB60 /* UIView+AnimeteorAdditions.h in Headers */,
 				A144E5501BC5F3C00054FB60 /* NSNumber+AnimeteorAdditions.h in Headers */,
-				A144E5361BC5F2AC0054FB60 /* AMAnimatable.h in Headers */,
 				A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */,
 				A144E5221BC5F2660054FB60 /* Animeteor.h in Headers */,
 				A144E5411BC5F2AC0054FB60 /* AMLayerAnimation.h in Headers */,
@@ -434,8 +376,6 @@
 				A144E52B1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.m in Sources */,
 				A144E54F1BC5F3C00054FB60 /* NSValue+AnimeteorAdditions.m in Sources */,
 				A144E5541BC5F3C00054FB60 /* AMCurve.m in Sources */,
-				A144E5351BC5F2AC0054FB60 /* CALayer+AnimeteorAdditions.m in Sources */,
-				A144E5331BC5F2AC0054FB60 /* UIView+AnimeteorAdditions.m in Sources */,
 				A144E52D1BC5F2AC0054FB60 /* NSMutableArray+AMAnimationGroupAdditions.m in Sources */,
 				A144E5311BC5F2AC0054FB60 /* AMBasicAnimation.m in Sources */,
 			);

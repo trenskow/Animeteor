@@ -30,12 +30,9 @@
 
 @import ObjectiveC.runtime;
 
-#import "CALayer+AnimeteorAdditions.h"
-
 #import "AMAnimation.h"
 #import "AMCurve.h"
 #import "AMBasicAnimation.h"
-#import "AMAnimatable.h"
 #import "AMInterpolatable.h"
 
 #import "AMLayerAnimation+Private.h"

@@ -28,6 +28,8 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
+@import Foundation;
+
 /*!
  A prototype that defines a generic completion handler for animations.
  
