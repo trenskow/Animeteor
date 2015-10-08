@@ -35,45 +35,23 @@
  */
 @interface AMAnimationGroup : NSObject <AMAnimation>
 
-#pragma mark - Creating animation groups
+/// -------------------------------
+/// @name Creating Layer Animations
+/// -------------------------------
 
 /*!
- Creates a new instance of `AMAnimationGroup`.
+ Returns an initialized animation group.
  
- @param animations An NSArray containing animations which should be added to the group. The animations provided will all animate at the same time.
- @param completion A block that gets invoked when all the animations in the group has completed.
+ @param animations An `NSArray` of id<AMAnimation> objects to group.
+ @param completion An optional completion block to get called when the animation completes.
  
- @return Returns a `AMAnimationGroup` object.
+ @return An initialized animation group.
  */
-+ (instancetype)animationGroupWithAnimations:(NSArray *)animations
-                                  completion:(void(^)(BOOL finished))completion;
+- (instancetype)initWithAnimations:(NSArray *)animations completion:(void(^)(BOOL finished))completion;
 
-/*!
- Create a new instance of `AMAnimationGroup`.
- 
- @param animations An NSArray containing animation which should be added to the group. The animations provided will all animate at the same time.
- 
- @return Returns a `AMAnimationGroup` object.
- */
-+ (instancetype)animationGroupWithAnimations:(NSArray *)animations;
-
-/*!
- Creates a new instance of `AMAnimationGroup`.
- 
- @param completion A block that gets invoked when all animations in the group has completed.
- 
- @return Returns a `AMAnimationGroup` object.
- */
-+ (instancetype)animationGroupWithCompletion:(void(^)(BOOL finished))completion;
-
-/*!
- Creates a new instance of `AMAnimationGroup`.
- 
- @return Returns a `AMAnimationGroup` object.
- */
-+ (instancetype)animationGroup;
-
-#pragma mark - Adding animations
+/// -----------------------
+/// @name Adding Animations
+/// -----------------------
 
 /*!
  Adds an animation to the group.

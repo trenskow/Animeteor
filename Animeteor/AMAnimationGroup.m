@@ -76,37 +76,6 @@ char AMAnimationGroupObserverContext;
     
 }
 
-#pragma mark - Creating Animation Group
-
-+ (instancetype)animationGroupWithAnimations:(NSArray *)animations completion:(void(^)(BOOL finished))completion {
-    
-    AMAnimationGroup *animationGroup = [[self alloc] initWithAnimations:animations
-                                                               completion:completion];
-    
-    [animationGroup performSelector:@selector(beginAnimation) withObject:nil afterDelay:.0 inModes:@[NSRunLoopCommonModes]];
-    
-    return animationGroup;
-    
-}
-
-+ (instancetype)animationGroupWithAnimations:(NSArray *)animations {
-    
-    return [self animationGroupWithAnimations:animations completion:nil];
-    
-}
-
-+ (instancetype)animationGroupWithCompletion:(void (^)(BOOL finished))completion {
-    
-    return [self animationGroupWithAnimations:nil completion:completion];
-    
-}
-
-+ (instancetype)animationGroup {
-    
-    return [self animationGroupWithAnimations:nil completion:nil];
-    
-}
-
 #pragma mark - Internals
 
 - (NSMutableArray *)animationGroupsForAnimation:(id<AMAnimation>)animation {
