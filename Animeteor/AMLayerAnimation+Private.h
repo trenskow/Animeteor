@@ -30,13 +30,13 @@
 
 #import "AMLayerAnimation.h"
 
-@class AMCurvedKeyedAnimation;
+@class AMCurvedAnimation;
 
 @interface AMLayerAnimation (Private)
 
 @property (copy,nonatomic,readonly) AMCurve *curve;
 
-- (void)prepareAnimation:(AMCurvedKeyedAnimation *)animation
+- (void)prepareAnimation:(AMCurvedAnimation *)animation
                 usingKey:(NSString *)key;
 
 - (void)animationStarted;

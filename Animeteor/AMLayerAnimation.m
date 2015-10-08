@@ -32,7 +32,7 @@
 
 #import "AMAnimation.h"
 #import "AMCurve.h"
-#import "AMCurvedKeyedAnimation.h"
+#import "AMCurvedAnimation.h"
 #import "AMInterpolatable.h"
 
 #import "AMLayerAnimation+Private.h"
@@ -97,19 +97,19 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 #pragma mark - Internal
 
-- (void)animationDidStart:(AMCurvedKeyedAnimation *)anim {
+- (void)animationDidStart:(AMCurvedAnimation *)anim {
     
     [self animationStarted];
     
 }
 
-- (void)animationDidStop:(AMCurvedKeyedAnimation *)anim finished:(BOOL)flag {
+- (void)animationDidStop:(AMCurvedAnimation *)anim finished:(BOOL)flag {
     
     [self animationCompleted:flag];
     
 }
 
-- (void)prepareAnimation:(AMCurvedKeyedAnimation *)animation usingKey:(NSString *)key {
+- (void)prepareAnimation:(AMCurvedAnimation *)animation usingKey:(NSString *)key {
     
 #if defined(TR_ANIMATION_VIEW_DEBUG)
     animation.duration = self.duration * 10.0;
@@ -208,7 +208,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 - (void)setupAnimations {
     
-    AMCurvedKeyedAnimation *customAnimation = [AMCurvedKeyedAnimation animationWithKeyPath:_keyPath];
+    AMCurvedAnimation *customAnimation = [AMCurvedAnimation animationWithKeyPath:_keyPath];
     customAnimation.fromValue = _fromValue;
     customAnimation.toValue = _toValue;
     
@@ -224,7 +224,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 + (BOOL)inProgressOn:(CALayer *)layer withKeyPath:(NSString *)keyPath {
     
-    AMCurvedKeyedAnimation *animation = (AMCurvedKeyedAnimation *)[layer animationForKey:ANIMATION_KEY_FOR_KEYPATH(keyPath)];
+    AMCurvedAnimation *animation = (AMCurvedAnimation *)[layer animationForKey:ANIMATION_KEY_FOR_KEYPATH(keyPath)];
     return (animation && [animation.keyPath isEqualToString:keyPath]);
     
 }
