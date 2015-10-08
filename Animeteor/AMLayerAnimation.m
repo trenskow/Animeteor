@@ -66,11 +66,11 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 #pragma mark - Setup / Teardown
 
 - (instancetype)initWithLayer:(CALayer *)layer
-                     duration:(NSTimeInterval)duration
-                        delay:(NSTimeInterval)delay
                       keyPath:(NSString *)keyPath
                     fromValue:(id<AMInterpolatable>)fromValue
                       toValue:(id<AMInterpolatable>)toValue
+                     duration:(NSTimeInterval)duration
+                        delay:(NSTimeInterval)delay
                         curve:(AMCurve *)curve
                    completion:(void (^)(BOOL finished))completion {
     
@@ -222,124 +222,6 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     
     AMBasicAnimation *animation = (AMBasicAnimation *)[layer animationForKey:ANIMATION_KEY_FOR_KEYPATH(keyPath)];
     return (animation && [animation.keyPath isEqualToString:keyPath]);
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve
-             completion:(void (^)(BOOL finished))completion {
-    
-    if (!layer)
-        return nil;
-    
-    AMLayerAnimation *animation = [[self alloc] initWithLayer:layer
-                                                     duration:duration
-                                                        delay:delay
-                                                      keyPath:keyPath
-                                                    fromValue:fromValue
-                                                      toValue:toValue
-                                                        curve:curve
-                                                   completion:completion];
-    
-    [layer setValue:fromValue forKeyPath:keyPath];
-    
-    [animation performSelector:@selector(beginAnimation) withObject:nil afterDelay:0.0 inModes:@[NSRunLoopCommonModes]];
-    
-    return animation;
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve {
-    
-    return [self animate:layer
-                duration:duration
-                   delay:delay
-                 keyPath:keyPath
-               fromValue:fromValue
-                 toValue:toValue
-                   curve:curve
-              completion:nil];
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue {
-    
-    return [self animate:layer
-                duration:duration
-                   delay:delay
-                 keyPath:keyPath
-               fromValue:fromValue
-                 toValue:toValue
-                   curve:nil
-              completion:nil];
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve
-             completion:(void (^)(BOOL finished))completion {
-    
-    return [self animate:layer
-                duration:duration
-                   delay:delay
-                 keyPath:keyPath
-               fromValue:[layer valueForKeyPath:keyPath]
-                 toValue:toValue
-                   curve:curve
-              completion:completion];
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve {
-    
-    return [self animate:layer
-                duration:duration
-                   delay:delay
-                 keyPath:keyPath
-                 toValue:toValue
-                   curve:curve
-              completion:nil];
-    
-}
-
-+ (instancetype)animate:(CALayer *)layer
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue {
-    
-    return [self animate:layer
-                duration:duration
-                   delay:delay
-                 keyPath:keyPath
-                 toValue:toValue
-                   curve:nil
-              completion:nil];
     
 }
 

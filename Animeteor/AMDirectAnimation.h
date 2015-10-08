@@ -42,123 +42,26 @@
 /// ---------------------------
 
 /*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update.
+ Returns an initialized direct animation object.
  
- @param object     The object which property you want to animate.
+ @param object     The object to animate.
+ @param keyPath    The keypath of the object to animate.
+ @param fromValue  Animate from this value. Providing `nil` will default to keyPaths current value on the object.
+ @param toValue    Animate to this value.
  @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param fromValue  The value from which the property will animate from.
- @param toValue    The value from which the property will animate to.
- @param curve      The curvature of the animation.
- @param completion A block that gets invokes when the animation completes.
+ @param delay      The delay of the animation.
+ @param curve      The curve of the animation. Providing `nil` will default to a linear curve.
+ @param completion An optional completion block to get called when the animation completes.
  
- @return An animation ready to animate.
+ @return An initialized direct animation object.
  */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve
-             completion:(void (^)(BOOL finished))completion;
-
-/*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update.
- 
- @param object     The object which property you want to animate.
- @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param fromValue  The value from which the property will animate from.
- @param toValue    The value from which the property will animate to.
- @param curve      The curvature of the animation.
- 
- @return An animation ready to animate.
- */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve;
-
-/*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update.
- 
- @param object     The object which property you want to animate.
- @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param fromValue  The value from which the property will animate from.
- @param toValue    The value from which the property will animate to.
- 
- @return An animation ready to animate.
- */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-              fromValue:(id<AMInterpolatable>)fromValue
-                toValue:(id<AMInterpolatable>)toValue;
-
-/*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update. The animation animates from the property's current value.
- 
- @param object     The object which property you want to animate.
- @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param toValue    The value from which the property will animate to.
- @param curve      The curvature of the animation.
- @param completion A block that gets invokes when the animation completes.
- 
- @return An animation ready to animate.
- */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve
-             completion:(void (^)(BOOL finished))completion;
-
-/*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update. The animation animates from the property's current value.
- 
- @param object     The object which property you want to animate.
- @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param toValue    The value from which the property will animate to.
- @param curve      The curvature of the animation.
- 
- @return An animation ready to animate.
- */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue
-                  curve:(AMCurve *)curve;
-
-/*!
- Creates and returns an animation that is driven by directly manipulating the key path of an object on every screen update. The animation animates from the property's current value.
- 
- @param object     The object which property you want to animate.
- @param duration   The duration of the animation.
- @param delay      The delay before the animation begins.
- @param keyPath    The key path of the property.
- @param toValue    The value from which the property will animate to.
- 
- @return An animation ready to animate.
- */
-+ (instancetype)animate:(id)object
-               duration:(NSTimeInterval)duration
-                  delay:(NSTimeInterval)delay
-                keyPath:(NSString *)keyPath
-                toValue:(id<AMInterpolatable>)toValue;
+- (instancetype)initWithObject:(id)object
+                       keyPath:(NSString *)keyPath
+                     fromValue:(id<AMInterpolatable>)fromValue
+                       toValue:(id<AMInterpolatable>)toValue
+                      duration:(NSTimeInterval)duration
+                         delay:(NSTimeInterval)delay
+                         curve:(AMCurve *)curve
+                    completion:(void (^)(BOOL finished))completion;
 
 @end
