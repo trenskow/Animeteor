@@ -134,7 +134,12 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     
     if (!self.isAnimating) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
+        
+        _fromValue = _fromValue ?: [_layer valueForKeyPath:_keyPath];
+        _curve = _curve ?: [AMCurve linear];
+        
         self.animating = YES;
+        
         [self performSelector:@selector(setupAnimations)
                    withObject:nil
 #if defined(TR_ANIMATION_VIEW_DEBUG)

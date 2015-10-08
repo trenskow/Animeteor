@@ -140,6 +140,9 @@ const void *AMDirectAnimationKey;
         
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
         
+        _fromValue = _fromValue ?: [_object valueForKeyPath:_keyPath];
+        _curve = _curve ?: [AMCurve linear];
+        
         _beginTime = [NSDate dateWithTimeIntervalSinceNow:self.delay];
         
         _displayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(displayDidUpdate:)];
