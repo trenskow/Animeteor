@@ -31,6 +31,15 @@
 @import Foundation;
 
 /*!
+ A prototype that defines an animation block.
+ 
+ @param t The linear position between 0 and 1 to be converted to a curve position.
+ 
+ @return The curve position of `t`.
+ */
+typedef double (^AMCurveBlock)(double t);
+
+/*!
  The `AMCurve` class provides curvature for animations. Use one of the many build-in curves or create your own customized curves either using a block or by subclassing this class.
  */
 @interface AMCurve : NSObject <NSCopying>
@@ -44,217 +53,217 @@
  
  @return A linear curve.
  */
-+ (AMCurve *)linear;
++ (AMCurve * _Nonnull)linear;
 
 /*!
  Returns a curve that eases in quad.
  
  @return A curve that eases in quad.
  */
-+ (AMCurve *)easeInQuad;
++ (AMCurve * _Nonnull)easeInQuad;
 
 /*!
  Returns a curve that eases out quad.
  
  @return A curve that eases out quad.
  */
-+ (AMCurve *)easeOutQuad;
++ (AMCurve * _Nonnull)easeOutQuad;
 
 /*!
  Returns a curve that eases in and out quad.
  
  @return A curve that eases in and out quad.
  */
-+ (AMCurve *)easeInOutQuad;
++ (AMCurve * _Nonnull)easeInOutQuad;
 
 /*!
  Returns a curve that eases in cubic.
  
  @return A curve that eases in cubic.
  */
-+ (AMCurve *)easeInCubic;
++ (AMCurve * _Nonnull)easeInCubic;
 
 /*!
  Returns a curve that eases out cubic.
  
  @return A curve that eases out cubic.
  */
-+ (AMCurve *)easeOutCubic;
++ (AMCurve * _Nonnull)easeOutCubic;
 
 /*!
  Returns a curve that eases in and out cubic.
  
  @return A curve that eases in and out cubic.
  */
-+ (AMCurve *)easeInOutCubic;
++ (AMCurve * _Nonnull)easeInOutCubic;
 
 /*!
  Returns a curve that eases in quart.
  
  @return A curve that eases in quart.
  */
-+ (AMCurve *)easeInQuart;
++ (AMCurve * _Nonnull)easeInQuart;
 
 /*!
  Returns a curve that eases out quart.
  
  @return A curve that eases out quart.
  */
-+ (AMCurve *)easeOutQuart;
++ (AMCurve * _Nonnull)easeOutQuart;
 
 /*!
  Returns a curve that eases in and out quart.
  
  @return A curve that eases in and out quart.
  */
-+ (AMCurve *)easeInOutQuart;
++ (AMCurve * _Nonnull)easeInOutQuart;
 
 /*!
  Returns a curve that eases in quint.
  
  @return A curve that eases in quint.
  */
-+ (AMCurve *)easeInQuint;
++ (AMCurve * _Nonnull)easeInQuint;
 
 /*!
  Returns a curve that eases out quint.
  
  @return A curve that eases out quint.
  */
-+ (AMCurve *)easeOutQuint;
++ (AMCurve * _Nonnull)easeOutQuint;
 
 /*!
  Returns a curve that eases in and out quint.
  
  @return A curve that eases in and out quint.
  */
-+ (AMCurve *)easeInOutQuint;
++ (AMCurve * _Nonnull)easeInOutQuint;
 
 /*!
  Returns a curve that eases in using sine.
  
  @return A curve that eases in using sine.
  */
-+ (AMCurve *)easeInSine;
++ (AMCurve * _Nonnull)easeInSine;
 
 /*!
  Returns a curve that eases out using sine.
  
  @return A curve that eases out using sine.
  */
-+ (AMCurve *)easeOutSine;
++ (AMCurve * _Nonnull)easeOutSine;
 
 /*!
  Returns a curve that eases in and out using sine.
  
  @return A curve that eases in and out using sine.
  */
-+ (AMCurve *)easeInOutSine;
++ (AMCurve * _Nonnull)easeInOutSine;
 
 /*!
  Returns a curve that eases in expo.
  
  @return A curve that eases in expo.
  */
-+ (AMCurve *)easeInExpo;
++ (AMCurve * _Nonnull)easeInExpo;
 
 /*!
  Returns a curve that eases out expo.
  
  @return A curve that eases out expo.
  */
-+ (AMCurve *)easeOutExpo;
++ (AMCurve * _Nonnull)easeOutExpo;
 
 /*!
  Returns a curve that eases in and out expo.
  
  @return A curve that eases in and out expo.
  */
-+ (AMCurve *)easeInOutExpo;
++ (AMCurve * _Nonnull)easeInOutExpo;
 
 /*!
  Returns a curve that eases in circular.
  
  @return A curve that eases in circular.
  */
-+ (AMCurve *)easeInCirc;
++ (AMCurve * _Nonnull)easeInCirc;
 
 /*!
  Returns a curve that ease out circular.
  
  @return A curve that ease out circular.
  */
-+ (AMCurve *)easeOutCirc;
++ (AMCurve * _Nonnull)easeOutCirc;
 
 /*!
  Returns a curve that eases in and out circular.
  
  @return A curve that eases in and out circular.
  */
-+ (AMCurve *)easeInOutCirc;
++ (AMCurve * _Nonnull)easeInOutCirc;
 
 /*!
  Returns a curve that eases in elasticly.
  
  @return A curve that eases in elasticly.
  */
-+ (AMCurve *)easeInElastic;
++ (AMCurve * _Nonnull)easeInElastic;
 
 /*!
  Returns a curve that eases out elasticly.
  
  @return A curve that eases out elasticly.
  */
-+ (AMCurve *)easeOutElastic;
++ (AMCurve * _Nonnull)easeOutElastic;
 
 /*!
  Returns a curve that eases in and out elasticly.
  
  @return A curve that eases in and out elasticly.
  */
-+ (AMCurve *)easeInOutElastic;
++ (AMCurve * _Nonnull)easeInOutElastic;
 
 /*!
  Returns a curve that eases in with an overshoot.
  
  @return A curve that eases in with an overshoot.
  */
-+ (AMCurve *)easeInBack;
++ (AMCurve * _Nonnull)easeInBack;
 
 /*!
  Returns a curve that eases out with an overshoot.
  
  @return A curve that eases out with an overshoot.
  */
-+ (AMCurve *)easeOutBack;
++ (AMCurve * _Nonnull)easeOutBack;
 
 /*!
  Returns a curve that eases in and out with an overshoot.
  
  @return A curve that eases in and out with an overshoot.
  */
-+ (AMCurve *)easeInOutBack;
++ (AMCurve * _Nonnull)easeInOutBack;
 
 /*!
  Returns a curve that bounces in.
  
  @return A curve that bounces in.
  */
-+ (AMCurve *)easeInBounce;
++ (AMCurve * _Nonnull)easeInBounce;
 
 /*!
  Returns a curve that bounces out.
  
  @return A curve that bounces out.
  */
-+ (AMCurve *)easeOutBounce;
++ (AMCurve * _Nonnull)easeOutBounce;
 
 /*!
  Returns a curve that bounces in and out.
  
  @return A curve that bounces in and out.
  */
-+ (AMCurve *)easeInOutBounce;
++ (AMCurve * _Nonnull)easeInOutBounce;
 
 /// ---------------------
 /// @name Creating Curves
@@ -267,7 +276,7 @@
  
  @return A curve.
  */
-+ (instancetype)curveWithBlock:(double (^)(double t))block;
++ (instancetype _Nonnull)curveWithBlock:(AMCurveBlock _Nonnull)block;
 
 /// ------------------------
 /// @name Calculating Curves

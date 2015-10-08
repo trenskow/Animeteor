@@ -34,6 +34,6 @@
 
 @interface NSArray (AMAnimationGroupAdditions)
 
-- (NSUInteger)indexOfAnimation:(id<AMAnimation>)animation;
+- (NSUInteger)indexOfAnimation:(id<AMAnimation> _Nullable)animation;
 
 @end

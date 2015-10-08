@@ -41,12 +41,12 @@
  
  @discussion This is used by Animeteor to determine the layer on which to apply animations on an animatable object.
  */
-@property (nonatomic,readonly) CALayer *animationLayer;
+@property (nonatomic,readonly,nonnull) CALayer *animationLayer;
 /*!
  Returns the layer that holds the current visible state of `animationLayer`.
  
  @discussion This is used by Animeteor to get the current visible state of a layer.
  */
-@property (nonatomic,readonly) CALayer *presentedLayer;
+@property (nonatomic,readonly,nonnull) CALayer *presentedLayer;
 
 @end

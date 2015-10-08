@@ -47,7 +47,7 @@
  
  @return An initialized animation group.
  */
-- (instancetype)initWithAnimations:(NSArray *)animations completion:(void(^)(BOOL finished))completion;
+- (instancetype _Nonnull)initWithAnimations:(NSArray<id<AMAnimation>> * _Nullable)animations completion:(AMCompletionBlock _Nullable)completion;
 
 /// -----------------------
 /// @name Adding Animations
@@ -59,14 +59,14 @@
  @param animation    The animation to add to the group.
  @param animateAfter An animation which must complete before the added animation in `animation` begins. This animation must already have been added to the group.
  */
-- (void)addAnimation:(id<AMAnimation>)animation
-        animateAfter:(id<AMAnimation>)animateAfter;
+- (void)addAnimation:(id<AMAnimation> _Nonnull)animation
+        animateAfter:(id<AMAnimation> _Nullable)animateAfter;
 
 /*!
  Adds an animation to the group.
  
  @param animation The animation to add to the group.
  */
-- (void)addAnimation:(id<AMAnimation>)animation;
+- (void)addAnimation:(id<AMAnimation> _Nonnull)animation;
 
 @end

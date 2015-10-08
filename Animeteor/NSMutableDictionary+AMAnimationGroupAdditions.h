@@ -34,10 +34,10 @@
 
 @interface NSMutableDictionary (AMAnimationGroupAdditions)
 
-+ (instancetype)dictionaryWithAnimation:(id<AMAnimation>)animation
-                          animatedAfter:(id<AMAnimation>)animatedAfter;
++ (instancetype _Nonnull)dictionaryWithAnimation:(id<AMAnimation> _Nonnull)animation
+                          animatedAfter:(id<AMAnimation> _Nullable)animatedAfter;
 
-@property (nonatomic,readonly) id<AMAnimation> animation;
-@property (nonatomic) id<AMAnimation> animatedAfter;
+@property (nonatomic,readonly,nonnull) id<AMAnimation> animation;
+@property (nonatomic,nullable) id<AMAnimation> animatedAfter;
 
 @end

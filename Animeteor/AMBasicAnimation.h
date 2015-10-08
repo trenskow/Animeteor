@@ -46,16 +46,16 @@
 /*!
  Returns the curve used by the animation. Default is a linear curve.
  */
-@property (copy,nonatomic) AMCurve *curve;
+@property (copy,nonatomic,nullable) AMCurve *curve;
 
 /*!
  The value at which the animation should begin.
  */
-@property (nonatomic,strong) id<AMInterpolatable> fromValue;
+@property (nonatomic,strong,nullable) id<AMInterpolatable> fromValue;
 
 /*!
  The value at which the animation ends.
  */
-@property (nonatomic,strong) id<AMInterpolatable> toValue;
+@property (nonatomic,strong,nullable) id<AMInterpolatable> toValue;
 
 @end

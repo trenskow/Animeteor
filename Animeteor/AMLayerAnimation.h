@@ -58,14 +58,14 @@
  
  @return An initialized layer animation object.
  */
-- (instancetype)initWithLayer:(CALayer *)layer
-                      keyPath:(NSString *)keyPath
-                    fromValue:(id<AMInterpolatable>)fromValue
-                      toValue:(id<AMInterpolatable>)toValue
-                     duration:(NSTimeInterval)duration
-                        delay:(NSTimeInterval)delay
-                        curve:(AMCurve *)curve
-                   completion:(void (^)(BOOL finished))completion;
+- (instancetype _Nonnull)initWithLayer:(CALayer * _Nonnull)layer
+                               keyPath:(NSString * _Nonnull)keyPath
+                             fromValue:(id<AMInterpolatable> _Nullable)fromValue
+                               toValue:(id<AMInterpolatable> _Nonnull)toValue
+                              duration:(NSTimeInterval)duration
+                                 delay:(NSTimeInterval)delay
+                                 curve:(AMCurve * _Nullable)curve
+                            completion:(AMCompletionBlock _Nullable)completion;
 
 /// --------------------------------
 /// @name Examining Views and Layers
@@ -79,7 +79,7 @@
 *
 *  @return Returns `YES` if the `UIView` or `CALayer` is animating on the property of `keyPath`.
 */
-+ (BOOL)inProgressOn:(CALayer *)layer withKeyPath:(NSString *)keyPath;
++ (BOOL)inProgressOn:(CALayer * _Nonnull)layer withKeyPath:(NSString * _Nonnull)keyPath;
 
 ///------------------------------------
 /// @name Getting Animation Information
@@ -88,7 +88,7 @@
 /*!
  Returns the animated layer.
  */
-@property (weak,readonly,nonatomic) CALayer *layer;
+@property (weak,readonly,nonatomic,nullable) CALayer *layer;
 
 /*!
  The duration of the animation.

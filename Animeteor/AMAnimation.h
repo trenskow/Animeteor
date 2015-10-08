@@ -29,6 +29,13 @@
 //
 
 /*!
+ A prototype that defines a generic completion handler for animations.
+ 
+ @param finished A boolean indicating if the animation was finished.
+ */
+typedef void (^AMCompletionBlock)(BOOL finished);
+
+/*!
  The `AMAnimation` protocol defines a set of methods and properties that are common to all types of animations. As an example the `AMAnimationGroup` only adds animations of objects that conform to this protocol.
  */
 @protocol AMAnimation

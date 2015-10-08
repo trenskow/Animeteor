@@ -42,7 +42,7 @@
  
  @return A new value with the interpolated result.
  */
-- (id<AMInterpolatable>)interpolateWithValue:(id<AMInterpolatable>)value
+- (id<AMInterpolatable> _Nonnull)interpolateWithValue:(id<AMInterpolatable> _Nonnull)value
                                   atPosition:(double)position;
 
 @end

@@ -55,13 +55,13 @@
  
  @return An initialized direct animation object.
  */
-- (instancetype)initWithObject:(id)object
-                       keyPath:(NSString *)keyPath
-                     fromValue:(id<AMInterpolatable>)fromValue
-                       toValue:(id<AMInterpolatable>)toValue
-                      duration:(NSTimeInterval)duration
-                         delay:(NSTimeInterval)delay
-                         curve:(AMCurve *)curve
-                    completion:(void (^)(BOOL finished))completion;
+- (instancetype _Nonnull)initWithObject:(id _Nonnull)object
+                                keyPath:(NSString * _Nonnull)keyPath
+                              fromValue:(id<AMInterpolatable> _Nullable)fromValue
+                                toValue:(id<AMInterpolatable> _Nonnull)toValue
+                               duration:(NSTimeInterval)duration
+                                  delay:(NSTimeInterval)delay
+                                  curve:(AMCurve * _Nullable)curve
+                             completion:(AMCompletionBlock _Nullable)completion;
 
 @end

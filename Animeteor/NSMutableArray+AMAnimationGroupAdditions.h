@@ -34,6 +34,6 @@
 
 @interface NSMutableArray (AMAnimationGroupAdditions)
 
-- (void)removeAnimation:(id<AMAnimation>)animation;
+- (void)removeAnimation:(id<AMAnimation> _Nullable)animation;
 
 @end
