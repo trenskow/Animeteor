@@ -59,7 +59,7 @@
 
 - (void)applyInterpolationIfSetupComplete {
     
-    if (self.duration && self.curve && self.fromValue && self.toValue) {
+    if (self.duration && self.curve && self.fromValue && self.toValue && self.speed) {
         
         NSMutableArray *keyTimes = [[NSMutableArray alloc] init];
         NSMutableArray *values = [[NSMutableArray alloc] init];
