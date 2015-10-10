@@ -131,12 +131,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 - (void)prepareAnimation:(AMCurvedAnimation *)animation usingKey:(NSString *)key {
     
-#if defined(TR_ANIMATION_VIEW_DEBUG)
-    animation.duration = self.duration * 10.0;
-#else
     animation.duration = self.duration;
-#endif
-    
     animation.curve = self.curve;
     
     [animation setValue:key forKey:AMLayerAnimationKey];
@@ -161,11 +156,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
         
         [self performSelector:@selector(setupAnimations)
                    withObject:nil
-#if defined(TR_ANIMATION_VIEW_DEBUG)
-                   afterDelay:self.delay * 10.0
-#else
                    afterDelay:self.delay
-#endif
                       inModes:@[NSRunLoopCommonModes]];
     }
     
