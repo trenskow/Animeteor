@@ -29,6 +29,7 @@
 //
 
 #import "AMCurve.h"
+#import "AMInterpolatable.h"
 
 #import "AMCurvedAnimation.h"
 

@@ -30,9 +30,8 @@
 
 @import QuartzCore;
 
-#import "AMInterpolatable.h"
-
 @class AMCurve;
+@protocol AMInterpolatable;
 
 /*!
  The `AMCurvedAnimation` class is a `CAAnimation` subclass that provides basic animation of a `CALayer` property. This class is much like Core Animation's `CABasicAnimation` except it allows for custom interpolation using `AMCurve`.
