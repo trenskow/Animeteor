@@ -19,7 +19,6 @@
 		A144E5301BC5F2AC0054FB60 /* AMCurvedAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C789517883BD20000B420 /* AMCurvedAnimation.h */; settings = {ASSET_TAGS = (); }; };
 		A144E5311BC5F2AC0054FB60 /* AMCurvedAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C789617883BD20000B420 /* AMCurvedAnimation.m */; settings = {ASSET_TAGS = (); }; };
 		A144E5411BC5F2AC0054FB60 /* AMLayerAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A10A32A718E2DB5B000D4B49 /* AMLayerAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A144E5421BC5F2AC0054FB60 /* AMLayerAnimation+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */; settings = {ASSET_TAGS = (); }; };
 		A144E5431BC5F2AC0054FB60 /* AMLayerAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */; settings = {ASSET_TAGS = (); }; };
 		A144E5441BC5F2AC0054FB60 /* AMDirectAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A1E6EA931912D98600E4F179 /* AMDirectAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5451BC5F2AC0054FB60 /* AMDirectAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = A1E6EA941912D98600E4F179 /* AMDirectAnimation.m */; settings = {ASSET_TAGS = (); }; };
@@ -37,7 +36,6 @@
 		A10A32A718E2DB5B000D4B49 /* AMLayerAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMLayerAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMLayerAnimation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A10BC9A217883E9800F354FC /* Animeteor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animeteor.h; sourceTree = "<group>"; };
-		A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AMLayerAnimation+Private.h"; sourceTree = "<group>"; };
 		A10D78D819A279530013E5F5 /* AMCurve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMCurve.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A10D78D919A279530013E5F5 /* AMCurve.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMCurve.m; sourceTree = "<group>"; };
 		A1145CE4194EF9F3001B0108 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,7 +81,6 @@
 			children = (
 				A1D5FCD719ACE5EA00C9EB4B /* Additions */,
 				A10A32A718E2DB5B000D4B49 /* AMLayerAnimation.h */,
-				A10BC9E017899EF200F354FC /* AMLayerAnimation+Private.h */,
 				A10A32A818E2DB5B000D4B49 /* AMLayerAnimation.m */,
 			);
 			name = "Core Animation";
@@ -285,7 +282,6 @@
 			files = (
 				A144E54E1BC5F3C00054FB60 /* NSValue+AnimeteorAdditions.h in Headers */,
 				A144E5301BC5F2AC0054FB60 /* AMCurvedAnimation.h in Headers */,
-				A144E5421BC5F2AC0054FB60 /* AMLayerAnimation+Private.h in Headers */,
 				A144E5501BC5F3C00054FB60 /* NSNumber+AnimeteorAdditions.h in Headers */,
 				A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */,
 				A144E5221BC5F2660054FB60 /* Animeteor.h in Headers */,

@@ -35,7 +35,7 @@
 #import "AMCurvedAnimation.h"
 #import "AMInterpolatable.h"
 
-#import "AMLayerAnimation+Private.h"
+#import "AMLayerAnimation.h"
 
 #define ANIMATION_KEY_FOR_KEYPATH(x) [NSString stringWithFormat:@"layerAnimation.%@", x]
 
