@@ -30,6 +30,8 @@
 
 @import ObjectiveC.runtime;
 
+#import "AMMacros.h"
+
 #import "NSMutableArray+AMAnimationGroupAdditions.h"
 #import "NSMutableDictionary+AMAnimationGroupAdditions.h"
 
@@ -59,6 +61,8 @@ char AMAnimationGroupObserverContext;
 #pragma mark - Setup / Teardown
 
 - (instancetype)initWithAnimations:(NSArray *)animations completion:(void(^)(BOOL finished))completion {
+    
+    AMAssertMainThread();
     
     if ((self = [super init])) {
         
@@ -93,6 +97,8 @@ char AMAnimationGroupObserverContext;
 
 - (void)addAnimation:(id<AMAnimation>)animation animateAfter:(id<AMAnimation>)animateAfter {
     
+    AMAssertMainThread();
+    
     /* Check if an actual animation is being added */
     if (animation) {
         
@@ -118,6 +124,8 @@ char AMAnimationGroupObserverContext;
 }
 
 - (void)beginAnimation {
+    
+    AMAssertMainThread();
     
     /* Start by cancelling any scheduled calls */
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
@@ -145,11 +153,15 @@ char AMAnimationGroupObserverContext;
 
 - (void)postponeAnimation {
     
+    AMAssertMainThread();
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     
 }
 
 - (void)cancelAnimation {
+    
+    AMAssertMainThread();
     
     while ([_animations count] > 0)
         [[[_animations firstObject] animation] cancelAnimation];
@@ -189,6 +201,8 @@ char AMAnimationGroupObserverContext;
 }
 
 - (void)setDelay:(NSTimeInterval)delay {
+    
+    AMAssertMainThread();
     
     NSTimeInterval delayDiff = MAX(delay, .0) - self.delay;
     

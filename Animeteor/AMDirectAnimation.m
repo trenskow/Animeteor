@@ -31,6 +31,8 @@
 @import ObjectiveC.runtime;
 @import UIKit;
 
+#import "AMMacros.h"
+
 #import "AMCurve.h"
 #import "AMInterpolatable.h"
 
@@ -73,6 +75,8 @@ const void *AMDirectAnimationKey;
                          delay:(NSTimeInterval)delay
                          curve:(AMCurve *)curve
                     completion:(void (^)(BOOL finished))completion {
+    
+    AMAssertMainThread();
     
     if ((self = [super init])) {
         
@@ -132,9 +136,27 @@ const void *AMDirectAnimationKey;
 @synthesize duration=_duration;
 @synthesize delay=_delay;
 
+- (void)setDuration:(NSTimeInterval)duration {
+    
+    AMAssertMainThread();
+    
+    _duration = duration;
+    
+}
+
+- (void)setDelay:(NSTimeInterval)delay {
+    
+    AMAssertMainThread();
+    
+    _delay = delay;
+    
+}
+
 #pragma mark - Public Methods
 
 - (void)beginAnimation {
+    
+    AMAssertMainThread();
     
     if (!self.isAnimating) {
         
@@ -156,11 +178,15 @@ const void *AMDirectAnimationKey;
 
 - (void)postponeAnimation {
     
+    AMAssertMainThread();
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     
 }
 
 - (void)cancelAnimation {
+    
+    AMAssertMainThread();
     
     if (_displayLink)
         [self endAnimation:NO];

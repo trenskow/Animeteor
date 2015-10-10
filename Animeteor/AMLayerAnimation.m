@@ -30,6 +30,8 @@
 
 @import ObjectiveC.runtime;
 
+#import "AMMacros.h"
+
 #import "AMAnimation.h"
 #import "AMCurve.h"
 #import "AMCurvedAnimation.h"
@@ -71,6 +73,8 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
                         curve:(AMCurve *)curve
                    completion:(void (^)(BOOL finished))completion {
     
+    AMAssertMainThread();
+    
     if ((self = [super init])) {
         
         self.layer = layer;
@@ -94,6 +98,22 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 #pragma mark - Properties
 
 @synthesize delay=_delay;
+
+- (void)setDuration:(NSTimeInterval)duration {
+    
+    AMAssertMainThread();
+    
+    _duration = duration;
+    
+}
+
+- (void)setDelay:(NSTimeInterval)delay {
+    
+    AMAssertMainThread();
+    
+    _delay = delay;
+    
+}
 
 #pragma mark - Internal
 
@@ -129,6 +149,8 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 - (void)beginAnimation {
     
+    AMAssertMainThread();
+    
     if (!self.isAnimating) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
         
@@ -151,11 +173,15 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 - (void)postponeAnimation {
     
+    AMAssertMainThread();
+    
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     
 }
 
 - (void)cancelAnimation {
+    
+    AMAssertMainThread();
     
     // Animation has not yet begun
     if (!self.isAnimating && !self.isComplete) {
