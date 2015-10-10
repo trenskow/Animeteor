@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A144E5221BC5F2660054FB60 /* Animeteor.h in Headers */ = {isa = PBXBuildFile; fileRef = A144E5211BC5F2660054FB60 /* Animeteor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5281BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788717883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.h */; settings = {ASSET_TAGS = (); }; };
 		A144E5291BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788817883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.m */; settings = {ASSET_TAGS = (); }; };
 		A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788917883B940000B420 /* NSArray+AMAnimationGroupAdditions.h */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +29,7 @@
 		A144E5521BC5F3C00054FB60 /* AMInterpolatable.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C789917883BE70000B420 /* AMInterpolatable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5531BC5F3C00054FB60 /* AMCurve.h in Headers */ = {isa = PBXBuildFile; fileRef = A10D78D819A279530013E5F5 /* AMCurve.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E5541BC5F3C00054FB60 /* AMCurve.m in Sources */ = {isa = PBXBuildFile; fileRef = A10D78D919A279530013E5F5 /* AMCurve.m */; settings = {ASSET_TAGS = (); }; };
+		A144E5571BC9B7670054FB60 /* Animeteor.h in Headers */ = {isa = PBXBuildFile; fileRef = A10BC9A217883E9800F354FC /* Animeteor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,8 +59,6 @@
 		A11C78A017883C070000B420 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		A11C78A217883C120000B420 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A144E51F1BC5F2660054FB60 /* Animeteor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Animeteor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A144E5211BC5F2660054FB60 /* Animeteor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Animeteor.h; sourceTree = "<group>"; };
-		A144E5231BC5F2660054FB60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1E6EA931912D98600E4F179 /* AMDirectAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMDirectAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A1E6EA941912D98600E4F179 /* AMDirectAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMDirectAnimation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 /* End PBXFileReference section */
@@ -91,7 +89,6 @@
 			children = (
 				A11C7858178839720000B420 /* Animeteor */,
 				A11C7859178839720000B420 /* Supporting Files */,
-				A144E5201BC5F2660054FB60 /* Animeteor */,
 				A11C7855178839720000B420 /* Frameworks */,
 				A11C7854178839720000B420 /* Products */,
 			);
@@ -178,15 +175,6 @@
 				A1D5FCD819ACE60D00C9EB4B /* Categories */,
 			);
 			name = Additions;
-			sourceTree = "<group>";
-		};
-		A144E5201BC5F2660054FB60 /* Animeteor */ = {
-			isa = PBXGroup;
-			children = (
-				A144E5211BC5F2660054FB60 /* Animeteor.h */,
-				A144E5231BC5F2660054FB60 /* Info.plist */,
-			);
-			path = Animeteor;
 			sourceTree = "<group>";
 		};
 		A1525C9919A4DD9F00024B4A /* Curvature */ = {
@@ -284,8 +272,8 @@
 				A144E5301BC5F2AC0054FB60 /* AMCurvedAnimation.h in Headers */,
 				A144E5501BC5F3C00054FB60 /* NSNumber+AnimeteorAdditions.h in Headers */,
 				A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */,
-				A144E5221BC5F2660054FB60 /* Animeteor.h in Headers */,
 				A144E5411BC5F2AC0054FB60 /* AMLayerAnimation.h in Headers */,
+				A144E5571BC9B7670054FB60 /* Animeteor.h in Headers */,
 				A144E52E1BC5F2AC0054FB60 /* AMAnimationGroup.h in Headers */,
 				A144E5281BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.h in Headers */,
 				A144E5521BC5F3C00054FB60 /* AMInterpolatable.h in Headers */,
