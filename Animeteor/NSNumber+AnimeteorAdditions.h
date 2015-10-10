@@ -2,7 +2,7 @@
 //  NSNumber+AnimeteorAdditions.h
 //  Animeteor
 //
-//  Copyright (c) 2013-2014, Kristian Trenskow
+//  Copyright (c) 2013-2015, Kristian Trenskow
 //  All rights reserved.
 //  
 //  Redistribution and use in source and binary forms, with or without
