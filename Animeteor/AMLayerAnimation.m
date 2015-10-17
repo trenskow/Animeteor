@@ -77,14 +77,14 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     
     if ((self = [super init])) {
         
-        self.layer = layer;
-        self.duration = duration;
-        self.delay = delay;
-        self.keyPath = keyPath;
-        self.fromValue = fromValue;
-        self.toValue = toValue;
-        self.curve = (curve ?: [AMCurve linear]);
-        self.completionBlock = completion;
+        _layer = layer;
+        _duration = duration;
+        _delay = delay;
+        _keyPath = keyPath;
+        _fromValue = fromValue;
+        _toValue = toValue;
+        _curve = (curve ?: [AMCurve linear]);
+        _completionBlock = completion;
         
         /* Associate animation object with view, so it won't be released doing animation */
         objc_setAssociatedObject(self.layer, &AMAnimationLayerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -97,6 +97,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 #pragma mark - Properties
 
+@synthesize duration=_duration;
 @synthesize delay=_delay;
 
 - (void)setDuration:(NSTimeInterval)duration {

@@ -44,8 +44,6 @@ const void *AMDirectAnimationKey;
     
     id _object;
     NSString *_keyPath;
-    NSTimeInterval _duration;
-    NSTimeInterval _delay;
     id<AMInterpolatable> _fromValue;
     id<AMInterpolatable> _toValue;
     AMCurve *_curve;
@@ -82,8 +80,8 @@ const void *AMDirectAnimationKey;
         
         _object = object;
         _keyPath = keyPath;
-        self.duration = duration;
-        self.delay = delay;
+        _duration = duration;
+        _delay = delay;
         _fromValue = fromValue;
         _toValue = toValue;
         _curve = (curve ?: [AMCurve linear]);

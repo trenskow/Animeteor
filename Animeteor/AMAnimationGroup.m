@@ -176,6 +176,8 @@ char AMAnimationGroupObserverContext;
 
 - (NSTimeInterval)duration {
     
+    AMAssertMainThread();
+    
     NSTimeInterval duration = .0;
     
     /* Iterate animations and find the longest running */
@@ -193,6 +195,8 @@ char AMAnimationGroupObserverContext;
 
 /* Finds the lowest delay of all animations */
 - (NSTimeInterval)delay {
+    
+    AMAssertMainThread();
     
     NSTimeInterval delay = DBL_MAX;
     
