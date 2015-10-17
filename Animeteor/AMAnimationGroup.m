@@ -133,6 +133,9 @@ char AMAnimationGroupObserverContext;
     
     if ([_animations count] > 0) {
         
+        if (!self.isAnimating)
+            self.animating = YES;
+        
         /* Create a copy in order to prevent mutation exceptions while enumerating */
         NSArray *animations = [_animations copy];
         
@@ -142,11 +145,13 @@ char AMAnimationGroupObserverContext;
         
     } else {
         
+        
         if (self.completion)
             self.completion(_animationFinished);
         
-        self.complete = YES;
         self.finished = _animationFinished;
+        self.complete = YES;
+        self.animating = NO;
         
     }
     
@@ -247,7 +252,7 @@ char AMAnimationGroupObserverContext;
                 a.animatedAfter = nil;
         
         BOOL finished = [object isFinished];
-        _animationFinished |= finished;
+        _animationFinished = _animationFinished && finished;
         
         /* Call beginAnimation again to start any waiting animations */
         [self beginAnimation];

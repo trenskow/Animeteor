@@ -107,7 +107,7 @@ const void *AMDirectAnimationKey;
     _displayLink = nil;
     
     self.complete = YES;
-    self.finished = YES;
+    self.finished = animationFinished;
     
     if (self.completion)
         self.completion(animationFinished);
@@ -204,7 +204,7 @@ const void *AMDirectAnimationKey;
     
     AMAssertMainThread();
     
-    if (_displayLink)
+    if (!self.isComplete)
         [self endAnimation:NO];
     
 }

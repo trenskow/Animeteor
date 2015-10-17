@@ -51,9 +51,9 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 @property (nonatomic,copy) id<AMInterpolatable> fromValue;
 @property (nonatomic,copy) id<AMInterpolatable> toValue;
 
-@property (nonatomic,getter = isAnimating) BOOL animating;
-@property (nonatomic,getter = isComplete) BOOL complete;
-@property (nonatomic,getter = isFinished) BOOL finished;
+@property (nonatomic,readwrite,getter = isAnimating) BOOL animating;
+@property (nonatomic,readwrite,getter = isComplete) BOOL complete;
+@property (nonatomic,readwrite,getter = isFinished) BOOL finished;
 @property (copy,nonatomic) AMCurve *curve;
 @property (weak,readwrite,nonatomic) CALayer *layer;
 
@@ -217,6 +217,11 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
             
         }
         
+    }
+    
+    if (!self.isComplete) {
+        self.finished = NO;
+        self.complete = YES;
     }
     
 }
