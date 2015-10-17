@@ -81,8 +81,8 @@ const void *AMDirectAnimationKey;
         _keyPath = keyPath;
         _duration = duration;
         _delay = delay;
-        _fromValue = fromValue;
-        _toValue = toValue;
+        _fromValue = [fromValue copyWithZone:nil];
+        _toValue = [toValue copyWithZone:nil];
         _curve = (curve ?: [AMCurve linear]);
         _completion = [completion copy];
         

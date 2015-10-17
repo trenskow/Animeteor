@@ -31,7 +31,7 @@
 /*!
  The `AMInterpolatable` is implemented by classes that are able to interpolate their value with other values. Currently Animeteor implements this on `NSNumber` and `NSValue`.
  */
-@protocol AMInterpolatable
+@protocol AMInterpolatable <NSCopying>
 
 @required
 /*!

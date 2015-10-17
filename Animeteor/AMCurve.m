@@ -386,16 +386,4 @@
     
 }
 
-#pragma mark - NSCopying
-
-- (id)copyWithZone:(NSZone *)zone {
-    
-    AMCurve *curve = [[AMCurve alloc] init];
-    
-    curve->_block = [_block copy];
-    
-    return curve;
-    
-}
-
 @end

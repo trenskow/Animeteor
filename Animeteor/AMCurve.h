@@ -42,7 +42,7 @@ typedef double (^AMCurveBlock)(double t);
 /*!
  The `AMCurve` class provides curvature for animations. Use one of the many build-in curves or create your own customized curves either using a block or by subclassing this class.
  */
-@interface AMCurve : NSObject <NSCopying>
+@interface AMCurve : NSObject
 
 /// ---------------------
 /// @name Build-in Curves
