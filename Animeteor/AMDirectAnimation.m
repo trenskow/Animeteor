@@ -88,6 +88,11 @@ const void *AMDirectAnimationKey;
         
         objc_setAssociatedObject(self, &AMDirectAnimationKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
+        [self performSelector:@selector(beginAnimation)
+                   withObject:nil
+                   afterDelay:0.0
+                      inModes:@[NSRunLoopCommonModes]];
+        
     }
     
     return self;

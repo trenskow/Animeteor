@@ -88,6 +88,11 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
         /* Associate animation object with view, so it won't be released doing animation */
         objc_setAssociatedObject(self.layer, &AMAnimationLayerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
+        [self performSelector:@selector(beginAnimation)
+                   withObject:nil
+                   afterDelay:0.0
+                      inModes:@[NSRunLoopCommonModes]];
+        
     }
     
     return self;
