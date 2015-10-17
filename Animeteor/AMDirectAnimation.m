@@ -139,6 +139,7 @@ const void *AMDirectAnimationKey;
 - (void)setDuration:(NSTimeInterval)duration {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     _duration = duration;
     
@@ -147,6 +148,7 @@ const void *AMDirectAnimationKey;
 - (void)setDelay:(NSTimeInterval)delay {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     _delay = delay;
     
@@ -157,6 +159,7 @@ const void *AMDirectAnimationKey;
 - (void)beginAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     if (!self.isAnimating) {
         
@@ -179,6 +182,7 @@ const void *AMDirectAnimationKey;
 - (void)postponeAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     

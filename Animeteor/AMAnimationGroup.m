@@ -98,6 +98,7 @@ char AMAnimationGroupObserverContext;
 - (void)addAnimation:(id<AMAnimation>)animation animateAfter:(id<AMAnimation>)animateAfter {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     /* Check if an actual animation is being added */
     if (animation) {
@@ -126,6 +127,7 @@ char AMAnimationGroupObserverContext;
 - (void)beginAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     /* Start by cancelling any scheduled calls */
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
@@ -154,6 +156,7 @@ char AMAnimationGroupObserverContext;
 - (void)postponeAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     
@@ -162,6 +165,7 @@ char AMAnimationGroupObserverContext;
 - (void)cancelAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     while ([_animations count] > 0)
         [[[_animations firstObject] animation] cancelAnimation];
@@ -203,6 +207,7 @@ char AMAnimationGroupObserverContext;
 - (void)setDelay:(NSTimeInterval)delay {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     NSTimeInterval delayDiff = MAX(delay, .0) - self.delay;
     

@@ -102,6 +102,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 - (void)setDuration:(NSTimeInterval)duration {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     _duration = duration;
     
@@ -110,6 +111,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 - (void)setDelay:(NSTimeInterval)delay {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     _delay = delay;
     
@@ -145,6 +147,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 - (void)beginAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     if (!self.isAnimating) {
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
@@ -165,6 +168,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 - (void)postponeAnimation {
     
     AMAssertMainThread();
+    AMAssertMutableState();
     
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     

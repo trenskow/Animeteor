@@ -29,3 +29,4 @@
 //
 
 #define AMAssertMainThread() NSAssert([NSThread isMainThread], @"Animeteor is only accessible using main thread.")
+#define AMAssertMutableState() NSAssert(!self.isAnimating && !self.isComplete, @"Animation is not mutable once animation has begun.")
