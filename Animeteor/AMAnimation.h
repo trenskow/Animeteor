@@ -73,6 +73,11 @@ typedef void (^AMCompletionBlock)(BOOL finished);
  */
 @property (nonatomic) NSTimeInterval delay;
 
+/*!
+ Returns a completion block that gets called when the animation completes.
+ */
+@property (copy,nonatomic,nullable) AMCompletionBlock completion;
+
 /// ------------------------
 /// @name Managing Animation
 /// ------------------------

@@ -45,7 +45,6 @@ char AMAnimationGroupObserverContext;
 @interface AMAnimationGroup () {
     
     NSMutableArray *_animations;
-    void (^_completion)(BOOL finished);
     BOOL _animationFinished;
     BOOL _beginsImmediately;
     
@@ -143,8 +142,8 @@ char AMAnimationGroupObserverContext;
         
     } else {
         
-        if (_completion)
-            _completion(_animationFinished);
+        if (self.completion)
+            self.completion(_animationFinished);
         
         self.complete = YES;
         self.finished = _animationFinished;
@@ -173,6 +172,8 @@ char AMAnimationGroupObserverContext;
 }
 
 #pragma mark - Properties
+
+@synthesize completion=_completion;
 
 - (NSTimeInterval)duration {
     
@@ -218,6 +219,15 @@ char AMAnimationGroupObserverContext;
     for (NSMutableDictionary *a in _animations)
         if (!a.animatedAfter)
             a.animation.delay += delayDiff;
+    
+}
+
+- (void)setCompletion:(AMCompletionBlock)completion {
+    
+    AMAssertMainThread();
+    AMAssertMutableState();
+    
+    _completion = [completion copy];
     
 }
 

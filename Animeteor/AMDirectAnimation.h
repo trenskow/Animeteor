@@ -51,7 +51,7 @@
  @param duration   The duration of the animation.
  @param delay      The delay of the animation.
  @param curve      The curve of the animation. Providing `nil` will default to a linear curve.
- @param completion An optional completion block to get called when the animation completes.
+ @param completion An optional completion block that gets called when the animation completes.
  
  @return An initialized direct animation object.
  */

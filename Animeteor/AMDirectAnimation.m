@@ -47,7 +47,6 @@ const void *AMDirectAnimationKey;
     id<AMInterpolatable> _fromValue;
     id<AMInterpolatable> _toValue;
     AMCurve *_curve;
-    void (^_completionBlock)(BOOL);
     
     CADisplayLink *_displayLink;
     NSDate *_beginTime;
@@ -85,7 +84,7 @@ const void *AMDirectAnimationKey;
         _fromValue = fromValue;
         _toValue = toValue;
         _curve = (curve ?: [AMCurve linear]);
-        _completionBlock = [completion copy];
+        _completion = [completion copy];
         
         objc_setAssociatedObject(self, &AMDirectAnimationKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
         
@@ -105,8 +104,8 @@ const void *AMDirectAnimationKey;
     self.complete = YES;
     self.finished = YES;
     
-    if (_completionBlock)
-        _completionBlock(animationFinished);
+    if (self.completion)
+        self.completion(animationFinished);
     
     objc_setAssociatedObject(self, &AMDirectAnimationKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
@@ -133,6 +132,7 @@ const void *AMDirectAnimationKey;
 @synthesize finished;
 @synthesize duration=_duration;
 @synthesize delay=_delay;
+@synthesize completion=_completion;
 
 - (void)setDuration:(NSTimeInterval)duration {
     
@@ -149,6 +149,15 @@ const void *AMDirectAnimationKey;
     AMAssertMutableState();
     
     _delay = delay;
+    
+}
+
+- (void)setCompletion:(AMCompletionBlock)completion {
+    
+    AMAssertMainThread();
+    AMAssertMutableState();
+    
+    _completion = [completion copy];
     
 }
 

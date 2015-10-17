@@ -55,7 +55,6 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 @property (nonatomic,getter = isComplete) BOOL complete;
 @property (nonatomic,getter = isFinished) BOOL finished;
 @property (copy,nonatomic) AMCurve *curve;
-@property (copy,nonatomic) void(^completionBlock)(BOOL finished);
 @property (weak,readwrite,nonatomic) CALayer *layer;
 
 @end
@@ -84,7 +83,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
         _fromValue = fromValue;
         _toValue = toValue;
         _curve = (curve ?: [AMCurve linear]);
-        _completionBlock = completion;
+        _completion = [completion copy];
         
         /* Associate animation object with view, so it won't be released doing animation */
         objc_setAssociatedObject(self.layer, &AMAnimationLayerKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
@@ -99,6 +98,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 @synthesize duration=_duration;
 @synthesize delay=_delay;
+@synthesize completion=_completion;
 
 - (void)setDuration:(NSTimeInterval)duration {
     
@@ -115,6 +115,15 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
     AMAssertMutableState();
     
     _delay = delay;
+    
+}
+
+- (void)setCompletion:(AMCompletionBlock)completion {
+    
+    AMAssertMainThread();
+    AMAssertMutableState();
+    
+    _completion = [completion copy];
     
 }
 
@@ -217,8 +226,8 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 - (void)animationCompleted:(BOOL)finished {
 
-    if (self.completionBlock)
-        self.completionBlock(finished);
+    if (self.completion)
+        self.completion(finished);
     
     self.complete = YES;
     self.finished = finished;
