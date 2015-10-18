@@ -162,6 +162,7 @@ char AMAnimationGroupObserverContext;
 
 #pragma mark - Properties
 
+@synthesize duration=_duration;
 @synthesize completion=_completion;
 
 - (NSTimeInterval)duration {
@@ -178,11 +179,23 @@ char AMAnimationGroupObserverContext;
     
 }
 
-/* Finds the lowest delay of all animations */
+- (void)setDuration:(NSTimeInterval)duration {
+    
+    AMAssertMainThread();
+    AMAssertMutableState();
+    
+    NSTimeInterval delta = duration - self.duration;
+    
+    for (id<AMAnimation> animation in _animations)
+        animation.duration += delta;
+    
+}
+
 - (NSTimeInterval)delay {
     
     AMAssertMainThread();
     
+    /* Finds the lowest delay of all animations */
     NSTimeInterval delay = DBL_MAX;
     
     for (id<AMAnimation> animation in _animations)

@@ -89,9 +89,4 @@
  */
 @property (weak,readonly,nonatomic,nullable) CALayer *layer;
 
-/*!
- The duration of the animation.
- */
-@property (nonatomic) NSTimeInterval duration;
-
 @end

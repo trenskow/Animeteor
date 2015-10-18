@@ -56,7 +56,6 @@ const void *AMDirectAnimationKey;
 @property (nonatomic,readwrite,getter = isAnimating) BOOL animating;
 @property (nonatomic,readwrite,getter = isComplete) BOOL complete;
 @property (nonatomic,readwrite,getter = isFinished) BOOL finished;
-@property (nonatomic,readwrite) NSTimeInterval duration;
 
 @end
 

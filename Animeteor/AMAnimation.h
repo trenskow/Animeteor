@@ -66,7 +66,7 @@ typedef void (^AMCompletionBlock)(BOOL finished);
 /*!
  Returns the duration of the animation.
  */
-@property (nonatomic,readonly) NSTimeInterval duration;
+@property (nonatomic) NSTimeInterval duration;
 
 /*!
  Returns the delay before the animation will begin.
