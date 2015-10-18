@@ -73,6 +73,9 @@ char AMAnimationGroupObserverContext;
         for (id<AMAnimation> animation in animations)
             [self addAnimation:animation animateAfter:nil];
         
+        /* Schedule animation begin on next run loop tick. */
+        [self performSelector:@selector(beginAnimation) withObject:nil afterDelay:0.0];
+        
     }
     
     return self;
