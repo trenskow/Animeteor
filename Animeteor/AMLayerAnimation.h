@@ -33,7 +33,6 @@
 #import "AMAnimation.h"
 
 @protocol AMInterpolatable;
-@class AMCurve;
 
 /*!
  The `AMLayerAnimation` provides animation on any animatable property of CALayer. Use this animation if you need to do custom animations on a layer that is not directly implemented in Animeteor as an explicit animation.
