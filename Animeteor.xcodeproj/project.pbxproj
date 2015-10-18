@@ -7,12 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A144E5281BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788717883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.h */; settings = {ASSET_TAGS = (); }; };
-		A144E5291BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788817883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788917883B940000B420 /* NSArray+AMAnimationGroupAdditions.h */; settings = {ASSET_TAGS = (); }; };
-		A144E52B1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788A17883B940000B420 /* NSArray+AMAnimationGroupAdditions.m */; settings = {ASSET_TAGS = (); }; };
-		A144E52C1BC5F2AC0054FB60 /* NSMutableArray+AMAnimationGroupAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788B17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.h */; settings = {ASSET_TAGS = (); }; };
-		A144E52D1BC5F2AC0054FB60 /* NSMutableArray+AMAnimationGroupAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788C17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.m */; settings = {ASSET_TAGS = (); }; };
 		A144E52E1BC5F2AC0054FB60 /* AMAnimationGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C788317883B7D0000B420 /* AMAnimationGroup.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A144E52F1BC5F2AC0054FB60 /* AMAnimationGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = A11C788417883B7D0000B420 /* AMAnimationGroup.m */; settings = {ASSET_TAGS = (); }; };
 		A144E5301BC5F2AC0054FB60 /* AMCurvedAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A11C789517883BD20000B420 /* AMCurvedAnimation.h */; settings = {ASSET_TAGS = (); }; };
@@ -43,12 +37,6 @@
 		A11C7867178839FA0000B420 /* AMAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A11C788317883B7D0000B420 /* AMAnimationGroup.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMAnimationGroup.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A11C788417883B7D0000B420 /* AMAnimationGroup.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMAnimationGroup.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A11C788717883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSMutableDictionary+AMAnimationGroupAdditions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A11C788817883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSMutableDictionary+AMAnimationGroupAdditions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A11C788917883B940000B420 /* NSArray+AMAnimationGroupAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSArray+AMAnimationGroupAdditions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A11C788A17883B940000B420 /* NSArray+AMAnimationGroupAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSArray+AMAnimationGroupAdditions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		A11C788B17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = "NSMutableArray+AMAnimationGroupAdditions.h"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		A11C788C17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "NSMutableArray+AMAnimationGroupAdditions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A11C789517883BD20000B420 /* AMCurvedAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMCurvedAnimation.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		A11C789617883BD20000B420 /* AMCurvedAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AMCurvedAnimation.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		A11C789917883BE70000B420 /* AMInterpolatable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = AMInterpolatable.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -148,19 +136,10 @@
 		A11C788217883B6E0000B420 /* Animation Group */ = {
 			isa = PBXGroup;
 			children = (
-				A11C788617883B870000B420 /* Additions */,
 				A11C788317883B7D0000B420 /* AMAnimationGroup.h */,
 				A11C788417883B7D0000B420 /* AMAnimationGroup.m */,
 			);
 			name = "Animation Group";
-			sourceTree = "<group>";
-		};
-		A11C788617883B870000B420 /* Additions */ = {
-			isa = PBXGroup;
-			children = (
-				A1D5FCD919ACE62100C9EB4B /* Categories */,
-			);
-			name = Additions;
 			sourceTree = "<group>";
 		};
 		A11C789417883BBE0000B420 /* Custom Classes */ = {
@@ -221,14 +200,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		A1D5FCD919ACE62100C9EB4B /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				A1D5FCDF19ACEA9B00C9EB4B /* Foundation */,
-			);
-			name = Categories;
-			sourceTree = "<group>";
-		};
 		A1D5FCDC19ACEA5800C9EB4B /* QuartzCore */ = {
 			isa = PBXGroup;
 			children = (
@@ -236,19 +207,6 @@
 				A11C789617883BD20000B420 /* AMCurvedAnimation.m */,
 			);
 			name = QuartzCore;
-			sourceTree = "<group>";
-		};
-		A1D5FCDF19ACEA9B00C9EB4B /* Foundation */ = {
-			isa = PBXGroup;
-			children = (
-				A11C788717883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.h */,
-				A11C788817883B940000B420 /* NSMutableDictionary+AMAnimationGroupAdditions.m */,
-				A11C788917883B940000B420 /* NSArray+AMAnimationGroupAdditions.h */,
-				A11C788A17883B940000B420 /* NSArray+AMAnimationGroupAdditions.m */,
-				A11C788B17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.h */,
-				A11C788C17883B940000B420 /* NSMutableArray+AMAnimationGroupAdditions.m */,
-			);
-			name = Foundation;
 			sourceTree = "<group>";
 		};
 		A1D5FCE019ACEAA900C9EB4B /* Foundation */ = {
@@ -281,15 +239,12 @@
 				A144E54E1BC5F3C00054FB60 /* NSValue+AnimeteorAdditions.h in Headers */,
 				A144E5301BC5F2AC0054FB60 /* AMCurvedAnimation.h in Headers */,
 				A144E5501BC5F3C00054FB60 /* NSNumber+AnimeteorAdditions.h in Headers */,
-				A144E52A1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.h in Headers */,
 				A144E5411BC5F2AC0054FB60 /* AMLayerAnimation.h in Headers */,
 				A144E5571BC9B7670054FB60 /* Animeteor.h in Headers */,
 				A144E52E1BC5F2AC0054FB60 /* AMAnimationGroup.h in Headers */,
-				A144E5281BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.h in Headers */,
 				A144E5521BC5F3C00054FB60 /* AMInterpolatable.h in Headers */,
 				A144E5531BC5F3C00054FB60 /* AMCurve.h in Headers */,
 				A144E5461BC5F2AC0054FB60 /* AMAnimation.h in Headers */,
-				A144E52C1BC5F2AC0054FB60 /* NSMutableArray+AMAnimationGroupAdditions.h in Headers */,
 				A144E5441BC5F2AC0054FB60 /* AMDirectAnimation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -365,12 +320,9 @@
 				A144E5511BC5F3C00054FB60 /* NSNumber+AnimeteorAdditions.m in Sources */,
 				A144E5431BC5F2AC0054FB60 /* AMLayerAnimation.m in Sources */,
 				A144E52F1BC5F2AC0054FB60 /* AMAnimationGroup.m in Sources */,
-				A144E5291BC5F2AC0054FB60 /* NSMutableDictionary+AMAnimationGroupAdditions.m in Sources */,
 				A144E5451BC5F2AC0054FB60 /* AMDirectAnimation.m in Sources */,
-				A144E52B1BC5F2AC0054FB60 /* NSArray+AMAnimationGroupAdditions.m in Sources */,
 				A144E54F1BC5F3C00054FB60 /* NSValue+AnimeteorAdditions.m in Sources */,
 				A144E5541BC5F3C00054FB60 /* AMCurve.m in Sources */,
-				A144E52D1BC5F2AC0054FB60 /* NSMutableArray+AMAnimationGroupAdditions.m in Sources */,
 				A144E5311BC5F2AC0054FB60 /* AMCurvedAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -32,11 +32,6 @@
 
 #import "AMMacros.h"
 
-#import "NSMutableArray+AMAnimationGroupAdditions.h"
-#import "NSMutableDictionary+AMAnimationGroupAdditions.h"
-
-#import "AMAnimation.h"
-
 #import "AMAnimationGroup.h"
 
 const char AMAnimationGroupKey;
@@ -44,9 +39,7 @@ char AMAnimationGroupObserverContext;
 
 @interface AMAnimationGroup () {
     
-    NSMutableArray *_animations;
-    BOOL _animationFinished;
-    BOOL _beginsImmediately;
+    NSMutableSet *_animations;
     
 }
 @property (nonatomic,getter = isAnimating) BOOL animating;
@@ -65,13 +58,13 @@ char AMAnimationGroupObserverContext;
     
     if ((self = [super init])) {
         
-        _animations = [[NSMutableArray alloc] init];
+        _animations = [[NSMutableSet alloc] init];
         _completion = [completion copy];
         
-        _animationFinished = YES;
+        _finished = YES;
         
         for (id<AMAnimation> animation in animations)
-            [self addAnimation:animation animateAfter:nil];
+            [self addAnimation:animation];
         
         /* Schedule animation begin on next run loop tick. */
         [self performSelector:@selector(beginAnimation) withObject:nil afterDelay:0.0];
@@ -84,45 +77,48 @@ char AMAnimationGroupObserverContext;
 
 #pragma mark - Internals
 
-- (NSMutableArray *)animationGroupsForAnimation:(id<AMAnimation>)animation {
+- (void)animationCompleted:(id<AMAnimation>)animation {
     
-    NSMutableArray *animationGroups = objc_getAssociatedObject(animation, &AMAnimationGroupKey);
-    if (!animationGroups) {
-        animationGroups = [[NSMutableArray alloc] init];
-        objc_setAssociatedObject(animation, &AMAnimationGroupKey, animationGroups, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    self.finished = self.isFinished && animation.isFinished;
+    
+    /* Remove the observer */
+    [(id)animation removeObserver:self forKeyPath:@"complete" context:&AMAnimationGroupObserverContext];
+    
+    /* Remove self association so we can get released when done. */
+    objc_setAssociatedObject(animation, &AMAnimationGroupKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
+    [_animations removeObject:animation];
+    
+    /* When all animations has completed, we complete the group. */
+    if ([_animations count] == 0) {
+        
+        if (self.completion)
+            self.completion(self.isFinished);
+        
+        self.complete = YES;
+        self.animating = NO;
+        
     }
-    return animationGroups;
     
 }
 
 #pragma mark - Managing Animations
 
-- (void)addAnimation:(id<AMAnimation>)animation animateAfter:(id<AMAnimation>)animateAfter {
+- (void)addAnimation:(id<AMAnimation>)animation {
     
     AMAssertMainThread();
     AMAssertMutableState();
     
-    /* Check if an actual animation is being added */
-    if (animation) {
-        
-        /* Tell animation to postpone it's animation so we can manage this in the group */
-        [animation postponeAnimation];
-        
-        [_animations addObject:[NSMutableDictionary dictionaryWithAnimation:animation animatedAfter:animateAfter]];
-        
-        /* Add observer for when animation completes */
-        [(id)animation addObserver:self forKeyPath:@"complete" options:0 context:&AMAnimationGroupObserverContext];
-        
-        /* Associate group with animation so it will retain it as long as animation lives */
-        [[self animationGroupsForAnimation:animation] addObject:self];
-        
-    }
+    /* Tell animation to postpone it's animation so we can manage this in the group */
+    [animation postponeAnimation];
     
-}
-
-- (void)addAnimation:(id<AMAnimation>)animation {
+    [_animations addObject:animation];
     
-    [self addAnimation:animation animateAfter:nil];
+    /* Add observer for when animation completes */
+    [(id)animation addObserver:self forKeyPath:@"complete" options:0 context:&AMAnimationGroupObserverContext];
+    
+    /* Associate group with animation so it will retain it as long as animation lives */
+    objc_setAssociatedObject(animation, &AMAnimationGroupKey, self, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
 }
 
@@ -134,29 +130,10 @@ char AMAnimationGroupObserverContext;
     /* Start by cancelling any scheduled calls */
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
     
-    if ([_animations count] > 0) {
-        
-        if (!self.isAnimating)
-            self.animating = YES;
-        
-        /* Create a copy in order to prevent mutation exceptions while enumerating */
-        NSArray *animations = [_animations copy];
-        
-        for (NSMutableDictionary *a in animations)
-            if (!a.animatedAfter && !a.animation.isAnimating)
-                [a.animation beginAnimation];
-        
-    } else {
-        
-        
-        if (self.completion)
-            self.completion(_animationFinished);
-        
-        self.finished = _animationFinished;
-        self.complete = YES;
-        self.animating = NO;
-        
-    }
+    if (!self.isAnimating)
+        self.animating = YES;
+    
+    [_animations makeObjectsPerformSelector:@selector(beginAnimation)];
     
 }
 
@@ -172,10 +149,14 @@ char AMAnimationGroupObserverContext;
 - (void)cancelAnimation {
     
     AMAssertMainThread();
-    AMAssertMutableState();
     
-    while ([_animations count] > 0)
-        [[[_animations firstObject] animation] cancelAnimation];
+    [_animations makeObjectsPerformSelector:@selector(cancelAnimation)];
+    
+    self.finished = NO;
+    self.complete = YES;
+    
+    if (self.completion)
+        self.completion(NO);
     
 }
 
@@ -190,13 +171,8 @@ char AMAnimationGroupObserverContext;
     NSTimeInterval duration = .0;
     
     /* Iterate animations and find the longest running */
-    for (NSMutableDictionary *a in _animations) {
-        NSTimeInterval animDuration = a.animation.delay + a.animation.duration;
-        if (a.animatedAfter)
-            animDuration += a.animatedAfter.delay + a.animatedAfter.duration;
-        duration = MAX(duration, animDuration);
-        
-    }
+    for (id<AMAnimation> animation in _animations)
+        duration = MAX(duration, animation.delay + animation.duration);
     
     return duration - self.delay;
     
@@ -209,9 +185,8 @@ char AMAnimationGroupObserverContext;
     
     NSTimeInterval delay = DBL_MAX;
     
-    for (NSMutableDictionary *a in _animations)
-        if (!a.animatedAfter)
-            delay = MIN(delay, a.animation.delay);
+    for (id<AMAnimation> animation in _animations)
+        delay = MIN(delay, animation.delay);
     
     return (delay < DBL_MAX ? delay : .0);
     
@@ -222,11 +197,10 @@ char AMAnimationGroupObserverContext;
     AMAssertMainThread();
     AMAssertMutableState();
     
-    NSTimeInterval delayDiff = MAX(delay, .0) - self.delay;
+    NSTimeInterval delta = delay - self.delay;
     
-    for (NSMutableDictionary *a in _animations)
-        if (!a.animatedAfter)
-            a.animation.delay += delayDiff;
+    for (id<AMAnimation> animation in _animations)
+        animation.delay += delta;
     
 }
 
@@ -245,23 +219,8 @@ char AMAnimationGroupObserverContext;
     
     if (context == &AMAnimationGroupObserverContext) {
         
-        /* We really only observe once kind of value */
-        [object removeObserver:self forKeyPath:@"complete" context:&AMAnimationGroupObserverContext];
-        [_animations removeAnimation:object];
-        
-        /* Find all animations waiting on this animation and remove them */
-        for (NSMutableDictionary *a in _animations)
-            if (a.animatedAfter == object)
-                a.animatedAfter = nil;
-        
-        BOOL finished = [object isFinished];
-        _animationFinished = _animationFinished && finished;
-        
-        /* Call beginAnimation again to start any waiting animations */
-        [self beginAnimation];
-        
-        /* Remove association with animation in order to get released when all animations are done */
-        [[self animationGroupsForAnimation:object] removeObject:self];
+        if ([keyPath isEqualToString:@"complete"] && [object isComplete])
+            [self animationCompleted:object];
         
     } else
         [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

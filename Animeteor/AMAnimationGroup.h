@@ -31,7 +31,7 @@
 #import "AMAnimation.h"
 
 /*!
- `AMAnimationGroup` is a class that provides the ability to group animations into a single entity. Animations can be added to the animation group - even other animation groups can be added, to build a complex chain of animations. A completion handler can be provided on creation that gets invoked when all animations in the group has completed.
+ `AMAnimationGroup` is a class that provides the ability to group animations into a single entity. Animations can be added to the animation group - even other animation groups can be added. A completion handler can be provided on creation that gets invoked when all animations in the group has completed.
  */
 @interface AMAnimationGroup : NSObject <AMAnimation>
 
@@ -52,15 +52,6 @@
 /// -----------------------
 /// @name Adding Animations
 /// -----------------------
-
-/*!
- Adds an animation to the group.
- 
- @param animation    The animation to add to the group.
- @param animateAfter An animation which must complete before the added animation in `animation` begins. This animation must already have been added to the group.
- */
-- (void)addAnimation:(id<AMAnimation> _Nonnull)animation
-        animateAfter:(id<AMAnimation> _Nullable)animateAfter;
 
 /*!
  Adds an animation to the group.
