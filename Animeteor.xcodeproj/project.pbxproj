@@ -119,7 +119,6 @@
 				A144E5581BC9B8340054FB60 /* Macros */,
 				A1D5FCD619ACE5C700C9EB4B /* Interpolation */,
 				A1525C9919A4DD9F00024B4A /* Curvature */,
-				A11C788217883B6E0000B420 /* Animation Group */,
 				A11C7865178839AC0000B420 /* Animations */,
 				A10BC9A217883E9800F354FC /* Animeteor.h */,
 			);
@@ -138,6 +137,7 @@
 		A11C7865178839AC0000B420 /* Animations */ = {
 			isa = PBXGroup;
 			children = (
+				A11C788217883B6E0000B420 /* Animation Group */,
 				A10A32A618E2DB24000D4B49 /* Core Animation */,
 				A1E6EA921912D96B00E4F179 /* Direct */,
 				A11C7867178839FA0000B420 /* AMAnimation.h */,
@@ -529,6 +529,7 @@
 				A144E5261BC5F2660054FB60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
