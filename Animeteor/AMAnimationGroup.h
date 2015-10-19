@@ -43,7 +43,7 @@
  Returns an initialized animation group.
  
  @param animations An `NSArray` of id<AMAnimation> objects to group.
- @param completion An optional completion block that gets called when the animation completes.
+ @param completion An optional completion block that gets called when the animation group completes.
  
  @return An initialized animation group.
  */
