@@ -39,6 +39,7 @@
 /// @name Creating an Animation Group
 /// ---------------------------------
 
+- (instancetype _Nullable)new UNAVAILABLE_ATTRIBUTE;
 - (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
 
 /*!

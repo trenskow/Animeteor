@@ -28,24 +28,22 @@
 //  POSSIBILITY OF SUCH DAMAGE.
 //
 
+#import "AMCurve.h"
+
 // Convinience macro for returning a singleton in build-in the curve class methods.
 #define RETURN_SINGLETON(b) \
-    static AMCurve *curve; \
-    static dispatch_once_t onceToken; \
-    dispatch_once(&onceToken, ^{ \
-        curve = [AMCurve curveWithBlock:b]; \
-    }); \
-    return curve
-
-#import "AMCurve.h"
+static AMCurve *curve; \
+static dispatch_once_t onceToken; \
+dispatch_once(&onceToken, ^{ \
+curve = [[AMCurve alloc] initWithBlock:b]; \
+}); \
+return curve
 
 @interface AMCurve () {
     
-    double (^_block)(double t);
+    AMCurveBlock _block;
     
 }
-
-- (instancetype)initWithBlock:(double (^)(double t))block;
 
 @end
 
@@ -361,15 +359,7 @@
 
 #pragma mark - Setup / Tear down
 
-+ (instancetype)curveWithBlock:(double (^)(double))block {
-    
-    if (!block) return [AMCurve linear];
-    
-    return [[self alloc] initWithBlock:block];
-    
-}
-
-- (instancetype)initWithBlock:(double (^)(double))block {
+- (instancetype)initWithBlock:(AMCurveBlock)block {
     
     if ((self = [super init]))
         _block = [block copy];

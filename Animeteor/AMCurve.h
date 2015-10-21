@@ -269,16 +269,17 @@ typedef double (^AMCurveBlock)(double t);
 /// @name Creating Curves
 /// ---------------------
 
++ (instancetype _Nullable)new UNAVAILABLE_ATTRIBUTE;
 - (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
 
 /*!
- Creates and returns a new curve using a block.
+ Returns an initialized curve with a block.
  
  @param block A block that takes a value in time *t* between one and zero and returns the relative position on the curve.
  
- @return A curve.
+ @return An initialized curve.
  */
-+ (instancetype _Nonnull)curveWithBlock:(AMCurveBlock _Nonnull)block;
+- (instancetype _Nonnull)initWithBlock:(AMCurveBlock _Nonnull)block;
 
 /// ------------------------
 /// @name Calculating Curves
