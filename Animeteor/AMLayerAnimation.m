@@ -47,15 +47,15 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 
 @interface AMLayerAnimation ()
 
+@property (weak,nonatomic) CALayer *layer;
 @property (nonatomic,copy) NSString *keyPath;
 @property (nonatomic,copy) id<AMInterpolatable> fromValue;
 @property (nonatomic,copy) id<AMInterpolatable> toValue;
+@property (copy,nonatomic) AMCurve *curve;
 
 @property (nonatomic,readwrite,getter = isAnimating) BOOL animating;
 @property (nonatomic,readwrite,getter = isComplete) BOOL complete;
 @property (nonatomic,readwrite,getter = isFinished) BOOL finished;
-@property (copy,nonatomic) AMCurve *curve;
-@property (weak,nonatomic) CALayer *layer;
 
 @end
 

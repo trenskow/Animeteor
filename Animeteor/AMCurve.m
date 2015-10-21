@@ -39,11 +39,9 @@ curve = [[AMCurve alloc] initWithBlock:b]; \
 }); \
 return curve
 
-@interface AMCurve () {
-    
-    AMCurveBlock _block;
-    
-}
+@interface AMCurve ()
+
+@property (nonatomic,copy) AMCurveBlock block;
 
 @end
 
@@ -372,7 +370,7 @@ return curve
 
 - (double)transform:(double)positionInTime {
     
-    return _block(MIN(1.0, MAX(.0, positionInTime)));
+    return self.block(MIN(1.0, MAX(.0, positionInTime)));
     
 }
 

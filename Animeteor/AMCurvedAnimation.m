@@ -33,14 +33,6 @@
 
 #import "AMCurvedAnimation.h"
 
-@interface AMCurvedAnimation () {
-    
-    AMCurve *_curve;
-    
-}
-
-@end
-
 @implementation AMCurvedAnimation
 
 #pragma mark - Creating an Animation
@@ -101,7 +93,7 @@
 
 - (void)setCurve:(AMCurve *)curve {
     
-    _curve = [curve copy];
+    _curve = curve;
     
     [self applyInterpolationIfSetupComplete];
     

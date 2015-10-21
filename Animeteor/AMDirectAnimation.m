@@ -40,18 +40,15 @@
 
 const void *AMDirectAnimationKey;
 
-@interface AMDirectAnimation () {
-    
-    id _object;
-    NSString *_keyPath;
-    id<AMInterpolatable> _fromValue;
-    id<AMInterpolatable> _toValue;
-    AMCurve *_curve;
-    
-    CADisplayLink *_displayLink;
-    NSDate *_beginTime;
-    
-}
+@interface AMDirectAnimation ()
+
+@property (weak,nonatomic) id object;
+@property (nonatomic) NSString *keyPath;
+@property (nonatomic) id<AMInterpolatable> fromValue;
+@property (nonatomic) id<AMInterpolatable> toValue;
+@property (nonatomic) AMCurve *curve;
+@property (nonatomic) CADisplayLink *displayLink;
+@property (nonatomic) NSDate *beginTime;
 
 @property (nonatomic,readwrite,getter = isAnimating) BOOL animating;
 @property (nonatomic,readwrite,getter = isComplete) BOOL complete;
@@ -102,8 +99,8 @@ const void *AMDirectAnimationKey;
 
 - (void)endAnimation:(BOOL)animationFinished {
     
-    [_displayLink invalidate];
-    _displayLink = nil;
+    [self.displayLink invalidate];
+    self.displayLink = nil;
     
     self.complete = YES;
     self.finished = animationFinished;
@@ -117,12 +114,12 @@ const void *AMDirectAnimationKey;
 
 - (void)displayDidUpdate:(CADisplayLink *)displayLink {
     
-    double progress = MIN([[NSDate date] timeIntervalSinceDate:_beginTime] / self.duration, 1.0);
+    double progress = MIN([[NSDate date] timeIntervalSinceDate:self.beginTime] / self.duration, 1.0);
     
     if (progress >= 0 && progress <= 1.0)
-        [_object setValue:[_fromValue interpolateWithValue:_toValue
-                                                atPosition:[_curve transform:progress]]
-               forKeyPath:_keyPath];
+        [self.object setValue:[self.fromValue interpolateWithValue:self.toValue
+                                                        atPosition:[self.curve transform:progress]]
+                   forKeyPath:self.keyPath];
     
     if (progress == 1.0)
         [self endAnimation:YES];
@@ -176,13 +173,13 @@ const void *AMDirectAnimationKey;
         
         [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(beginAnimation) object:nil];
         
-        _fromValue = _fromValue ?: [_object valueForKeyPath:_keyPath];
-        _curve = _curve ?: [AMCurve linear];
+        self.fromValue = self.fromValue ?: [self.object valueForKeyPath:self.keyPath];
+        self.curve = self.curve ?: [AMCurve linear];
         
-        _beginTime = [NSDate dateWithTimeIntervalSinceNow:self.delay];
+        self.beginTime = [NSDate dateWithTimeIntervalSinceNow:self.delay];
         
-        _displayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(displayDidUpdate:)];
-        [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
+        self.displayLink = [[UIScreen mainScreen] displayLinkWithTarget:self selector:@selector(displayDidUpdate:)];
+        [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSRunLoopCommonModes];
         
         self.animating = YES;
         

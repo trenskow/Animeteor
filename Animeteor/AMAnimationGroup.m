@@ -37,11 +37,10 @@
 const char AMAnimationGroupKey;
 char AMAnimationGroupObserverContext;
 
-@interface AMAnimationGroup () {
-    
-    NSMutableSet *_animations;
-    
-}
+@interface AMAnimationGroup ()
+
+@property (nonatomic) NSMutableSet *animations;
+
 @property (nonatomic,getter = isAnimating) BOOL animating;
 @property (nonatomic,getter = isComplete) BOOL complete;
 @property (nonatomic,getter = hasFinished) BOOL finished;
@@ -87,10 +86,10 @@ char AMAnimationGroupObserverContext;
     /* Remove self association so we can get released when done. */
     objc_setAssociatedObject(animation, &AMAnimationGroupKey, nil, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     
-    [_animations removeObject:animation];
+    [self.animations removeObject:animation];
     
     /* When all animations has completed, we complete the group. */
-    if ([_animations count] == 0) {
+    if ([self.animations count] == 0) {
         
         if (self.completion)
             self.completion(self.isFinished);
@@ -112,7 +111,7 @@ char AMAnimationGroupObserverContext;
     /* Tell animation to postpone it's animation so we can manage this in the group */
     [animation postponeAnimation];
     
-    [_animations addObject:animation];
+    [self.animations addObject:animation];
     
     /* Add observer for when animation completes */
     [(id)animation addObserver:self forKeyPath:@"complete" options:0 context:&AMAnimationGroupObserverContext];
@@ -133,7 +132,7 @@ char AMAnimationGroupObserverContext;
     if (!self.isAnimating)
         self.animating = YES;
     
-    [_animations makeObjectsPerformSelector:@selector(beginAnimation)];
+    [self.animations makeObjectsPerformSelector:@selector(beginAnimation)];
     
 }
 
@@ -150,7 +149,7 @@ char AMAnimationGroupObserverContext;
     
     AMAssertMainThread();
     
-    [_animations makeObjectsPerformSelector:@selector(cancelAnimation)];
+    [self.animations makeObjectsPerformSelector:@selector(cancelAnimation)];
     
     self.finished = NO;
     self.complete = YES;
@@ -172,7 +171,7 @@ char AMAnimationGroupObserverContext;
     NSTimeInterval duration = .0;
     
     /* Iterate animations and find the longest running */
-    for (id<AMAnimation> animation in _animations)
+    for (id<AMAnimation> animation in self.animations)
         duration = MAX(duration, animation.delay + animation.duration);
     
     return duration - self.delay;
@@ -186,7 +185,7 @@ char AMAnimationGroupObserverContext;
     
     NSTimeInterval delta = duration - self.duration;
     
-    for (id<AMAnimation> animation in _animations)
+    for (id<AMAnimation> animation in self.animations)
         animation.duration += delta;
     
 }
@@ -198,7 +197,7 @@ char AMAnimationGroupObserverContext;
     /* Finds the lowest delay of all animations */
     NSTimeInterval delay = DBL_MAX;
     
-    for (id<AMAnimation> animation in _animations)
+    for (id<AMAnimation> animation in self.animations)
         delay = MIN(delay, animation.delay);
     
     return (delay < DBL_MAX ? delay : .0);
@@ -212,7 +211,7 @@ char AMAnimationGroupObserverContext;
     
     NSTimeInterval delta = delay - self.delay;
     
-    for (id<AMAnimation> animation in _animations)
+    for (id<AMAnimation> animation in self.animations)
         animation.delay += delta;
     
 }

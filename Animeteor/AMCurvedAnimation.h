@@ -45,7 +45,7 @@
 /*!
  Returns the curve used by the animation. Default is a linear curve.
  */
-@property (copy,nonatomic,nullable) AMCurve *curve;
+@property (nonatomic,nullable) AMCurve *curve;
 
 /*!
  The value at which the animation should begin.
