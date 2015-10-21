@@ -39,9 +39,11 @@
  */
 @interface AMLayerAnimation : NSObject <AMAnimation>
 
-/// -------------------------------
-/// @name Creating Layer Animations
-/// -------------------------------
+/// ----------------------------
+/// @name Creating an Animations
+/// ----------------------------
+
+- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
 
 /*!
  Returns an initialized layer animation object.

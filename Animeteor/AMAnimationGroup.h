@@ -35,9 +35,11 @@
  */
 @interface AMAnimationGroup : NSObject <AMAnimation>
 
-/// -------------------------------
-/// @name Creating Layer Animations
-/// -------------------------------
+/// ---------------------------------
+/// @name Creating an Animation Group
+/// ---------------------------------
+
+- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
 
 /*!
  Returns an initialized animation group.

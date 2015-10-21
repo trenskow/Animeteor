@@ -269,6 +269,8 @@ typedef double (^AMCurveBlock)(double t);
 /// @name Creating Curves
 /// ---------------------
 
+- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
+
 /*!
  Creates and returns a new curve using a block.
  

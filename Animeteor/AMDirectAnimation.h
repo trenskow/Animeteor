@@ -41,6 +41,8 @@
 /// @name Creating an Animation
 /// ---------------------------
 
+- (instancetype _Nullable)init UNAVAILABLE_ATTRIBUTE;
+
 /*!
  Returns an initialized direct animation object.
  

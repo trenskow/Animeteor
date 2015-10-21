@@ -43,17 +43,10 @@ FOUNDATION_EXPORT const unsigned char AnimeteorVersionString[];
 #import "NSNumber+AnimeteorAdditions.h"
 #import "NSValue+AnimeteorAdditions.h"
 
-#import "AMAnimatable.h"
-
-#import "UIView+AnimeteorAdditions.h"
-#import "CALayer+AnimeteorAdditions.h"
-
 #import "AMCurve.h"
 
 #import "AMAnimation.h"
 
-#import "AMLayerAnimation.h"
-
-#import "AMDirectAnimation.h"
-
 #import "AMAnimationGroup.h"
+#import "AMLayerAnimation.h"
+#import "AMDirectAnimation.h"
