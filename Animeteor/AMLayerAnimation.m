@@ -55,7 +55,7 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
 @property (nonatomic,readwrite,getter = isComplete) BOOL complete;
 @property (nonatomic,readwrite,getter = isFinished) BOOL finished;
 @property (copy,nonatomic) AMCurve *curve;
-@property (weak,readwrite,nonatomic) CALayer *layer;
+@property (weak,nonatomic) CALayer *layer;
 
 @end
 
@@ -258,15 +258,6 @@ NSString *const AMLayerAnimationKey = @"AMAnimationKey";
               forKeyPath:_keyPath];
     
     [self prepareAnimation:customAnimation usingKey:ANIMATION_KEY_FOR_KEYPATH(_keyPath)];
-    
-}
-
-#pragma mark - Creating Animation
-
-+ (BOOL)inProgressOn:(CALayer *)layer withKeyPath:(NSString *)keyPath {
-    
-    AMCurvedAnimation *animation = (AMCurvedAnimation *)[layer animationForKey:ANIMATION_KEY_FOR_KEYPATH(keyPath)];
-    return (animation && [animation.keyPath isEqualToString:keyPath]);
     
 }
 

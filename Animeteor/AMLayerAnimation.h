@@ -69,27 +69,4 @@
                                  curve:(AMCurve * _Nullable)curve
                             completion:(AMCompletionBlock _Nullable)completion;
 
-/// --------------------------------
-/// @name Examining Views and Layers
-/// --------------------------------
-
-/*!
-*  Checks if an animation is in progress on a `UIView` or `CALayer` instance at a perticular property.
-*
-*  @param layer       The `CALayer` you want to examine.
-*  @param keyPath     The key path of the property that you want to examine.
-*
-*  @return Returns `YES` if the `UIView` or `CALayer` is animating on the property of `keyPath`.
-*/
-+ (BOOL)inProgressOn:(CALayer * _Nonnull)layer withKeyPath:(NSString * _Nonnull)keyPath;
-
-///------------------------------------
-/// @name Getting Animation Information
-///------------------------------------
-
-/*!
- Returns the animated layer.
- */
-@property (weak,readonly,nonatomic,nullable) CALayer *layer;
-
 @end
